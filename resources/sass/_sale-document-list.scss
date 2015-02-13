@@ -1,0 +1,245 @@
+/**
+ * @author Othman Labzar <othman.labzar@sage.com>
+ * @author Said Ouarrich <said.ouarrich@sage.com>
+ * Description
+ */
+
+.sales-document-list {
+  
+	.x-field {
+		background: #A7A7A7;
+		padding-top: 6px;
+		padding-left: 600px;
+	}
+	.x-input-el {
+		background: transparent;
+		padding: 0em 0.4em 0.4em 0.4em;
+		min-height: 28px;
+		border-width: 0;
+		padding-bottom: 0px;
+		-webkit-appearance: none;
+	}
+	.x-form-label {
+		padding: 0.19em 0.6em 0.6em 7em;
+	}
+
+	.x-form-label-nowrap .x-form-label {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin-left: 376px;
+	}
+
+	.x-form .x-field .x-field-input {
+		@include border-radius(0px);
+		border: 0px;
+		background-color:  white;
+	}
+	.x-field-input{
+		border-radius: 0px;
+		border : 0px;
+		width: 168px;
+	}
+	.x-field .x-input-el {
+		width: 100%;
+		text-align: center;
+	}
+
+	.x-list .x-list-header {
+		background-color: #D3D3D3;
+		border: 0px;
+		padding: 0.2em 1em;
+	}
+
+	.x-list .x-list-item:nth-child(2n+1) {
+		color: black;
+		font-weight: 400;
+		border-top: 1px solid transparent;
+		background: aliceblue;
+	}
+
+///////////////////////Appercu DOC/////////////////////////////////
+.contentTile{
+
+  .name{
+  	font-size: 20px;
+  	float: left;
+  }
+  .amount{
+  	font-size: 20px;
+  	text-align: right;
+  }
+
+  .footer{
+
+    .item-name{
+        color: #676767;
+		float: left;
+		width: inherit;
+		margin-right: 5px;
+    }
+    .number{
+       	color: #676767;
+		float: left;
+    }
+    .date{
+	  	text-align: right;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		color: #676767;
+		font-size: 11pt;
+  }
+  }
+}
+///////////////////////END Appercu DOC/////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////
+.empty-text{
+	color: #717275;
+	margin-left: 27px;
+}
+.customer-favorite{  
+	background: #66abaf;
+	width: 165px;
+	height: 155px;
+	margin-left: 24px;
+	margin-bottom: 24px;
+
+	.name{
+		color: white;
+		padding-left: 12px;
+		padding-top: 12px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		display: inline-block;
+		width: 155px;
+
+	}
+	.shortName{
+		color: white;
+		font-size: 12px;
+		text-align: right;
+		margin-right: 12px;
+		margin-top: 97px;
+
+	}
+
+}
+
+/////////////////////////////////////////////////////////////////////////
+}
+///////////////////////Appercu DOC favorite/////////////////////////////////
+	@mixin doc-style-bytype ( $color ) {
+		.contentTile{
+			background: white;
+			width: 357px;
+			height: 100px;
+			margin-left: 24px;
+			margin-bottom: 22px;
+			border-left: solid 5px $color;
+
+
+
+		  .name{
+		  	font-size: 20px;
+			padding-top: 8px;
+			float: left;
+			padding-left: 7px;
+			width: 228px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			display: inline-block;
+			overflow: hidden;			
+
+		  }
+		  .amount{
+		  	font-size: 20px;
+		  	text-align: right;
+		  	padding-top: 8px;
+			padding-right: 7px;
+			width: 120px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			display: inline-block;
+			overflow: hidden
+		  }
+
+		  .footer{
+
+		    .item-name{
+		        color: #676767;
+				float: left;
+				margin-right: 5px;
+				padding-top: 29px;
+				padding-left: 7px;
+				width: 160px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				display: inline-block;
+				overflow: hidden
+		    }
+		    .number{
+		       	color: #676767;
+				float: left;
+				padding-top: 29px;
+				width: 88px;
+				margin-left: -6px;
+				margin-right: 7px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				display: inline-block;
+				overflow: hidden
+		    }
+		    .date{
+			  	text-align: right;
+				margin-bottom: 10px;
+				margin-top: 10px;
+				color: #676767;
+				font-size: 11pt;
+				padding-top: 19px;
+				padding-right: 0px;
+				width: 78px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				display: inline-block;
+				overflow: hidden
+		  }
+		  }
+		}
+	}
+	.sales-invoice-list-favorite {
+		@include doc-style-bytype(rgba(0,169,173,0.9));
+		.empty-text{
+			color: #717275;
+			margin-left: 27px;
+		}
+	}
+	.sales-order-list-favorite {
+		@include doc-style-bytype(rgba(102,204,221,0.9));
+		.empty-text{
+			color: #717275;
+			margin-left: 27px;
+		}
+
+	}
+	.sales-delivery-list-favorite {
+		@include doc-style-bytype(rgba(192,134,233,0.9));
+		.empty-text{
+			color: #717275;
+			margin-left: 27px;
+		}
+
+	}
+	.sales-quote-list-favorite {
+		@include doc-style-bytype(rgba(247,110,110,0.9));
+		.empty-text{
+			color: #717275;
+			margin-left: 27px;
+		}
+
+	}	
+///////////////////////END Appercu DOC/////////////////////////////////
+
+

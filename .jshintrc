@@ -1,0 +1,25 @@
+{
+    "indent": 4,
+    "maxlen": 100,
+    "maxdepth": 4,
+    "maxparams": 5,
+    "maxcomplexity": 5,
+    "maxerr": 2000,
+    "boss": true,
+    "curly": true,
+    "eqeqeq": true,
+    "eqnull": true,
+    "expr": true,
+    "immed": true,
+    "noarg": true,
+    "onevar": true,
+    "quotmark": "single",
+    "smarttabs": true,
+    "trailing": true,
+    "undef": true,
+    "unused": true,
+    "browser": true,
+    "globals": {
+        "Ext": false
+    }
+}

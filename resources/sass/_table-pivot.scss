@@ -1,0 +1,479 @@
+/**
+ * @author Quentin Decre <quentin.decre@niji.fr>
+ * @date: 26/09/13
+ *
+ * CSS Style for pivot tables
+ */
+
+$header: $darkGreen;
+$baseBackground: $grey1;
+$evenCell: $grey1;
+$oddCell: $grey3;
+$variationDown: #cc0504;
+$upVariation: $lightGreen;
+
+$variationDownText: #FF2727;
+$upVariationText: #00c800;
+
+.x-container.dataviz-pivot {
+  width: 67%;
+  margin-top: 15px;
+  height: 592px;
+  padding-top: 4px;
+}
+
+.pivot_container.dataviz_container {
+  width: 100%;
+}
+
+.dataviz-pivot table.pivot {
+  margin: 0 auto;
+  //  width: auto;
+  color: #ffffff;
+  border-collapse: collapse;
+  background: $baseBackground;
+  width: 95%;
+}
+
+.dataviz-pivot thead {
+  //position: relative;
+  //display: block;
+}
+
+.dataviz-pivot tbody {
+  //display: block;
+  //height: 416px;
+  //overflow-x: hidden;
+  //overflow-y: scroll;
+  //-webkit-overflow-scrolling: touch;
+}
+
+.dataviz-pivot tfoot {
+  //position: relative;
+  //display: block;
+  height: 45px;
+}
+
+$baseWidth: 129px;
+@mixin columnWidth($colspan: 1, $width: $baseWidth) {
+  width: $width * $colspan;
+  min-width: $width * $colspan;
+  max-width: $width * $colspan;
+}
+
+.dataviz-pivot table.pivot.fixedWidth th,
+.dataviz-pivot table.pivot.fixedWidth td {
+  @include columnWidth();
+}
+
+.dataviz-pivot table.pivot.fixedWidth td[colspan="2"],
+.dataviz-pivot table.pivot.fixedWidth th[colspan="2"] {
+  @include columnWidth(2);
+}
+
+.dataviz-pivot table.pivot.fixedWidth td[colspan="3"],
+.dataviz-pivot table.pivot.fixedWidth th[colspan="3"] {
+  @include columnWidth(3);
+}
+
+.dataviz-pivot table.pivot.fixedWidth td[colspan="4"],
+.dataviz-pivot table.pivot.fixedWidth th[colspan="4"] {
+  @include columnWidth(4);
+}
+
+.dataviz-pivot table.pivot.fixedWidth td[colspan="5"],
+.dataviz-pivot table.pivot.fixedWidth th[colspan="5"] {
+  @include columnWidth(5);
+}
+
+.dataviz-pivot table.pivot.fixedWidth td[colspan="6"],
+.dataviz-pivot table.pivot.fixedWidth th[colspan="6"] {
+  @include columnWidth(6);
+}
+
+.dataviz-pivot table.pivot.fixedWidth td[colspan="7"],
+.dataviz-pivot table.pivot.fixedWidth th[colspan="7"] {
+  @include columnWidth(7);
+}
+
+.dataviz-pivot table.pivot.fixedWidth td[colspan="8"],
+.dataviz-pivot table.pivot.fixedWidth th[colspan="8"] {
+  @include columnWidth(8);
+}
+
+.dataviz-pivot table.pivot.fixedWidth td[colspan="9"],
+.dataviz-pivot table.pivot.fixedWidth th[colspan="9"] {
+  @include columnWidth(9);
+}
+
+.dataviz-pivot table.pivot {
+  thead{
+    //border-bottom: solid 5px white;
+    th{
+      text-align: center;
+    }
+  }
+  tfoot{
+    border-top: solid 5px white;
+  }
+  thead, tfoot{
+    th, td, td.total{
+      background-color: $header;
+      color: #ffffff;
+      vertical-align: middle;
+    }
+  }
+}
+
+.dataviz-pivot thead tr th.empty {
+  background-color: transparent;
+}
+
+.dataviz-pivot thead tr th.pivotcol {
+  background-color: rgba(193, 193, 193, 0.4);
+}
+
+.dataviz-pivot thead tr th.left {
+  text-align: left;
+}
+
+.dataviz-pivot ul {
+  list-style-image: none;
+  list-style-type: none;
+}
+
+.dataviz-pivot th,
+.dataviz-pivot td {
+  height: 20px;
+  padding: 10px 10px;
+  border: 1px solid rgba(244, 244, 244, 0.4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dataviz-pivot th span,
+.dataviz-pivot td span {
+  padding-left: 10px;
+}
+
+.dataviz-pivot th:last-child,
+.dataviz-pivot td:last-child {
+  padding: 10px 30px 10px 10px;
+}
+
+.dataviz-pivot th .variation_icon,
+.dataviz-pivot td .variation_icon {
+  vertical-align: middle;
+  padding: 0 !important;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  vertical-align: text-top;
+  background-image: url("../img/sprites-icones.png");
+  background-repeat: no-repeat;
+  *margin-right: .3em;
+  background-position: -234px -18px;
+}
+
+.dataviz-pivot th .variation_icon:last-child,
+.dataviz-pivot td .variation_icon:last-child {
+  *margin-left: 0;
+}
+
+.dataviz-pivot th .variation_icon.up,
+.dataviz-pivot td .variation_icon.up {
+  background-position: -198px -18px;
+}
+
+.dataviz-pivot th .variation_icon.down,
+.dataviz-pivot td .variation_icon.down {
+  background-position: -216px -18px;
+}
+
+.dataviz-pivot tbody th,
+.dataviz-pivot td {
+  white-space: nowrap;
+}
+
+.dataviz-pivot td:hover .td-inner {
+  position: relative;
+}
+
+.dataviz-pivot td:hover .td-inner .eyeDrill {
+  display: block;
+}
+
+.dataviz-pivot td,
+.dataviz-pivot tfoot td,
+.dataviz-pivot tbody td.total {
+  text-align: right;
+  background-color: $evenCell;
+}
+
+.dataviz-pivot tbody th,
+.dataviz-pivot tfoot tr th {
+  text-align: left;
+  background-color: $evenCell;
+}
+
+.dataviz-pivot tbody th.right,
+.dataviz-pivot tfoot tr th.right {
+  text-align: right;
+}
+
+.dataviz-pivot tfoot td.nodata {
+  text-align: center;
+}
+
+.dataviz-pivot tfoot tr.total {
+  background-color: rgba(130, 130, 130, 0.6);
+}
+
+.dataviz-pivot tfoot tr.show_more td {
+  text-align: center;
+  cursor: pointer;
+  color: #999999;
+}
+
+.dataviz-pivot tfoot tr.show_more td:hover {
+  background-color: #555555;
+  color: #ebebeb;
+}
+
+.dataviz-pivot tbody td,
+.dataviz-pivot tbody th {
+  background-color: $evenCell;
+}
+
+.dataviz-pivot td.PercentageVariation .variation_icon_container,
+.dataviz-pivot th.PercentageVariation .variation_icon_container {
+  padding: 5px;
+  margin: -5px -9px -5px 9px;
+  width: 20px;
+  height: 20px;
+}
+
+.dataviz-pivot tbody tr.down td:first-child,
+.dataviz-pivot tbody tr.down th:first-child {
+  background: -ms-linear-gradient(left, $variationDown 0%, $variationDown 5%, $evenCell 5%, $evenCell 100%) !important;
+  border-right: 1px solid rgba(244, 244, 244, 0.4) !important;
+  /*span{
+                    padding-left:10px;
+                }*/
+
+}
+
+.dataviz-pivot tbody tr.down td.NumericVariation,
+.dataviz-pivot tbody tr.down th.NumericVariation {
+  color: $variationDownText;
+  font-weight: bold;
+}
+
+.dataviz-pivot tbody tr.down td.PercentageVariation .variation_icon_container,
+.dataviz-pivot tbody tr.down th.PercentageVariation .variation_icon_container {
+  background: $variationDown !important;
+}
+
+.dataviz-pivot tbody tr.up td:first-child,
+.dataviz-pivot tbody tr.up th:first-child {
+  background: -ms-linear-gradient(left, $upVariation 0%, $upVariation 5%, $evenCell 5%, $evenCell 100%) !important;
+  border-right: 1px solid rgba(244, 244, 244, 0.4) !important;
+  /*span{
+                    padding-left:10px;
+                }*/
+
+}
+
+.dataviz-pivot tbody tr.up td.NumericVariation,
+.dataviz-pivot tbody tr.up th.NumericVariation {
+  color: $upVariationText;
+  font-weight: bold;
+}
+
+.dataviz-pivot tbody tr.up td.PercentageVariation .variation_icon_container,
+.dataviz-pivot tbody tr.up th.PercentageVariation .variation_icon_container {
+  background: $upVariation !important;
+}
+
+.dataviz-pivot tbody td.total {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dataviz-pivot table.pivot.table-striped tbody > tr:nth-child(odd) > td,
+.dataviz-pivot table.pivot.table-striped tbody > tr:nth-child(odd) > th {
+  background-color: $oddCell;
+}
+
+.dataviz-pivot table.pivot.table-striped tbody > tr:nth-child(odd).up > td:first-child,
+.dataviz-pivot table.pivot.table-striped tbody > tr:nth-child(odd).up > th:first-child {
+  background: -ms-linear-gradient(left, $upVariation 0%, $upVariation 5%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 100%) !important;
+  border-right: 1px solid rgba(244, 244, 244, 0.4) !important;
+}
+
+.dataviz-pivot table.pivot.table-striped tbody > tr:nth-child(odd).down > td:first-child,
+.dataviz-pivot table.pivot.table-striped tbody > tr:nth-child(odd).down > th:first-child {
+  background: -ms-linear-gradient(left, $variationDown 0%, $variationDown 5%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 100%) !important;
+  border-right: 1px solid rgba(244, 244, 244, 0.4) !important;
+}
+
+.dataviz-pivot .detail {
+  cursor: pointer;
+}
+
+.dataviz-pivot .foldunfold {
+  cursor: pointer;
+}
+
+.dataviz-pivot .foldunfold i {
+  margin: 0 5px 0 0;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  vertical-align: text-top;
+  background-image: url("../img/sprites-icones.png");
+  background-repeat: no-repeat;
+  *margin-right: .3em;
+}
+
+.dataviz-pivot .foldunfold i:last-child {
+  *margin-left: 0;
+}
+
+.dataviz-pivot .foldunfold i.sprite-minus {
+  background-position: -72px -18px;
+}
+
+.dataviz-pivot .foldunfold i.sprite-plus {
+  background-position: -90px -18px;
+}
+
+.dataviz-pivot dt,
+.dataviz-pivot th {
+  font-size: 10pt !important;
+  font-weight: normal !important;
+  text-transform: uppercase !important;
+}
+
+.dataviz-pivot .total {
+  font-size: 13pt;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr {
+  font-size: 10pt;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-0 {
+  font-size: 13pt;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-1 {
+  font-size: 13pt;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-1 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-0 th span {
+  padding-left: 15px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-2 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-1 th span {
+  padding-left: 35px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-3 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-2 th span {
+  padding-left: 55px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-4 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-3 th span {
+  padding-left: 75px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-5 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-4 th span {
+  padding-left: 95px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-6 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-5 th span {
+  padding-left: 115px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-7 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-6 th span {
+  padding-left: 135px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-8 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-7 th span {
+  padding-left: 155px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-9 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-8 th span {
+  padding-left: 175px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-10 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-9 th span {
+  padding-left: 195px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-11 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-10 th span {
+  padding-left: 215px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-12 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-11 th span {
+  padding-left: 235px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-13 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-12 th span {
+  padding-left: 255px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-14 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-13 th span {
+  padding-left: 275px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.level-15 th span,
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-14 th span {
+  padding-left: 295px;
+}
+
+.dataviz-pivot .pivot.tree_view tbody tr.lastlevel.level-15 th span {
+  padding-left: 315px;
+}
+
+.dataviz-pivot table .headerSort:after {
+  content: "";
+  float: right;
+  margin-top: 7px;
+  border-width: 0 4px 4px;
+  border-style: solid;
+  border-color: #fff transparent;
+  visibility: hidden;
+}
+
+.dataviz-pivot table .headerSort:hover:after {
+  visibility: visible;
+}
+
+.dataviz-pivot table .headerSortDown:after,
+.dataviz-pivot table table .headerSortDown:hover:after {
+  visibility: visible;
+}
+
+.dataviz-pivot table .headerSortUp:after {
+  border-bottom: none;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #fff;
+  visibility: visible;
+}

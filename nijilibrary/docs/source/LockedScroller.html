@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='NijiLibrary-ux-LockedScroller'>/**
+</span> * @author Quentin Decre &lt;quentin.decre@niji.fr&gt;
+ * @docauthor Quentin Decre &lt;quentin.decre@niji.fr&gt;
+ *
+ * @class NijiLibrary.ux.LockedScroller
+ *
+ * The locked scroller is an override needed by the GridView (NijiLibrary.view.GridView).
+ * It enables you to force the user to scroll one axis at a time.
+ */
+
+Ext.define('NijiLibrary.ux.LockedScroller', {
+    override: 'Ext.scroll.Scroller',
+<span id='NijiLibrary-ux-LockedScroller-method-onDragStart'>    /**
+</span>     * @config
+     * [dragAxisLock = false] if true, the scroller will scroll on one axis at a time
+     * (no more scrolling diagonally)
+     *
+     */
+    onDragStart: function() {
+        this.dragAxis = null;
+        this.callParent(arguments);
+    },
+<span id='NijiLibrary-ux-LockedScroller-method-onDrag'>    onDrag: function(e) {
+</span>        if (this.config.dragAxisLock) {
+            if (this.dragAxis === 'vertical' || (!this.dragAxis &amp;&amp; Math.abs(e.deltaY) &gt; Math.abs(e.deltaX))) {
+                this.dragAxis = 'vertical';
+                e.deltaX = 0;
+            }
+            if (this.dragAxis === 'horizontal' || (!this.dragAxis &amp;&amp; Math.abs(e.deltaY) &lt; Math.abs(e.deltaX))) {
+                this.dragAxis = 'horizontal';
+                e.deltaY = 0;
+            }
+        }
+        this.callParent(arguments);
+    }
+});</pre>
+</body>
+</html>

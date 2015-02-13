@@ -1,0 +1,61 @@
+.full-name{
+	color: white;
+	font-size: 12pt;
+	padding-top: 0%;
+	margin-left: 100px;
+	width: inherit;
+}
+
+.last-import{
+	color: floralwhite;
+	font-size: 10pt;
+	margin-left: 100px;	
+	width: inherit;
+}
+
+.connection-status-online{
+	background: url("../img/connected.png");
+	background-repeat: no-repeat;
+	width: 26px;
+	height: 26px;
+	margin-left: 60px;
+	float: left;
+	margin-top: 4px;
+}
+
+.connection-status-offline{
+	background: url("../img/disconnected.png");
+	background-repeat: no-repeat;
+	width: 26px;
+	height: 26px;
+	margin-left: 60px;
+	float: left;
+	margin-top: 4px;
+
+}
+.connection-status-offline-minified,.connection-status-online-minified{
+	width: 28px;
+	height: 44px;
+	margin-left: 50px;
+	float: left;
+	margin-top: 1px;
+	margin-right: 19px;
+
+}
+.connection-status-online-minified{
+	background: url("../img/connected.png");
+	background-size: 29px 29px;
+	background-repeat: no-repeat;
+	width: 32px;
+}
+.connection-status-offline-minified{
+	background: url("../img/disconnected.png");
+	background-size: 29px 29px;
+	background-repeat: no-repeat;
+	padding: 0px 16px;
+}
+.userInfo {
+  margin-left: 4px;
+  right: 41px;
+  position: relative;
+}

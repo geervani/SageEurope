@@ -1,0 +1,262 @@
+/**
+ * Sales Document Style
+ * @author Youssef Boubdir <youssef.boubdir@sage.com>
+ */
+$sales-doc-invoice-color: #C086E9;
+$sales-doc-invoice-background: #B17ED6;
+$sales-doc-lines-header-background: #22AAE2;
+$sales-doc-lines-customer-background: #29ADB1;
+
+.sales-doc {
+
+}
+
+.sales-doc-header {
+	font-size: 24px;
+	margin-left: 78px;
+	margin-top: 36px;
+	margin-bottom: -21px;
+
+	dt {
+		color: #060606;
+		font-size: 21px;
+		float: left;
+		width: 176px;
+		margin-left: 7px;
+	}
+
+	dd {
+		text-align: left;
+		font-size: 16pt;
+		margin-right: -288px;
+		font-family: "Foco", Foco, "Helvetica Neue", HelveticaNeue, "Helvetica-Neue",
+		 Helvetica, "BBAlpha Sans", sans-serif;ily: "Foco", Foco, "Helvetica Neue", HelveticaNeue,
+		  "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
+	}
+}
+.sales-doc-infos-total {
+	
+	border: 2px solid rgb(255, 254, 254);
+	height: 130px;
+	margin-left: 80px;
+	margin-right: 79px;
+	margin-top: 30px;
+	padding-top: 0px;
+
+.sales-doc-infos {
+	color: black;
+	margin-left: 0px;
+	padding-left: 6px;
+	width: 45%;
+	margin-top: 10px;
+	margin-bottom: 18px;
+	float: left;
+	background-color: rgb(240, 240, 240);
+
+
+	dt {
+		float: left;
+		width: 50%;		
+		clear: left;
+		text-align: left;
+		overflow: hidden;
+		white-space: nowrap;
+		font-weight: bolder;
+
+		.ddClass {
+			margin-left: 12em;
+			color: black;
+			font-size: 16px;
+		}
+	}
+	dd {
+		
+		margin-left: 139px;
+		text-align: right;
+		width: 47%;
+	}
+}
+.sales-doc-infos-suite {
+
+	color: black;
+	margin-left: 79px;
+	padding-left: 0px;
+	width: 42%;
+	margin-top: 10px;
+	margin-bottom: 1em;
+	float: left;
+	background-color: rgb(239, 237, 237);
+	border-color: darkslategray;
+	height: 109px;
+
+
+	dt {
+		float: left;
+		width: 182px;		
+		clear: left;
+		text-align: left;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-weight: bolder;
+		margin-left: 6px;
+		.ddClass {
+			margin-left: 12em;
+			color: black;
+			font-size: 16px;
+		}
+	}
+	dd {
+		
+		margin-left: 180px;
+		text-align: right;
+	}
+}
+
+
+
+
+
+}
+.sales-doc-infos-total-suite {
+
+border: 2px solid rgb(255, 254, 254);
+	height: 130px;
+	margin-left: 80px;
+	margin-right: 79px;
+	margin-top: 30px;
+	padding-top: 0px;
+	margin-bottom:-134px;
+
+.sales-doc-infos-deliveries {
+	color: black;
+	margin-left: -1px;
+	padding-left: 0px;
+	width: 42%;
+	margin-top: 10px;
+	margin-bottom: 1em;
+	float: left;
+	background-color: rgb(239, 237, 237);
+	border-color: darkslategray;
+	height: 38px;
+
+
+
+	dt {
+		float: left;
+		width: 182px;		
+		clear: left;
+		text-align: left;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-weight: bolder;
+		margin-left: 6px;
+
+		.ddClass {
+			margin-left: 12em;
+			color: black;
+			font-size: 16px;
+		}
+	}
+	dd {
+		
+		margin-left: 180px;
+		text-align: right;
+	}
+
+}
+.sales-doc-infos-suite-deliveries {
+	color: black;
+	margin-left: 79px;
+	padding-left: 0px;
+	width: 45%;
+	margin-top: 10px;
+	margin-bottom: 1em;
+	float: left;
+	background-color: rgb(239, 237, 237);
+	border-color: darkslategray;
+	height: 56px;
+
+
+	dt {
+		float: left;
+		width: 182px;		
+		clear: left;
+		text-align: left;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-weight: bolder;
+		margin-left: 6px;
+		.ddClass {
+			margin-left: 12em;
+			color: black;
+			font-size: 16px;
+		}
+	}
+	dd {
+		
+		margin-left: 180px;
+		text-align: right;
+	}
+}
+
+
+
+}
+
+
+.sales-doc-customer {
+	display: block;
+	width: 144px;
+	height: 120px;
+	background-color: #29adb1;
+	color: white;
+	margin-left: 561px;
+	margin-top: -119px;
+	margin-bottom: 1em;
+}
+
+.sales-doc-lines {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: separate;
+	border-spacing: 1px;
+	border-color: gray;
+	margin-top: 70px;
+
+	thead {
+		background-color: #878484;		//$sales-doc-lines-header-background;
+		color: white;
+		height: 45px;
+		th {
+			text-align: center;
+			word-break:break-all;
+		}
+		tr {
+			height: 40px;
+			font-size: 10pt;
+			font-weight: normal;
+			
+			word-break:break-all;
+
+		}
+	}
+
+	tbody {
+		background-color: white;
+
+		tr {
+			color: white;
+			background-color: #686464;
+			font-size: 14px;
+			height: 40px;		
+		}
+		td {
+			text-align: center;
+			width: 10px;
+		}
+	}
+}

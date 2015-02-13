@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='NijiLibrary-controller-connection-mock'>/**
+</span> * @author Philipp von Weitershausen &lt;philipp@weitershausen.de&gt;
+ * @docauthor Philipp von Weitershausen &lt;philipp@weitershausen.de&gt;
+ * @class NijiLibrary.controller.connection.mock
+ *
+ *
+ * Mock XMLHttpRequest (see http://www.w3.org/TR/XMLHttpRequest)
+ *
+ * Written by Philipp von Weitershausen &lt;philipp@weitershausen.de&gt;
+ * Released under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * For test interaction it exposes the following attributes:
+ *
+ * - method, url, urlParts, async, user, password
+ * - requestText
+ *
+ * as well as the following methods:
+ *
+ * - getRequestHeader(header)
+ * - setResponseHeader(header, value)
+ * - receive(status, data)
+ * - err(exception)
+ * - authenticate(user, password)
+ *
+ *
+ */
+
+function MockHttpRequest () {
+    // These are internal flags and data structures
+    this.error = false;
+    this.sent = false;
+    this.requestHeaders = {};
+    this.responseHeaders = {};
+}
+MockHttpRequest.prototype = {
+
+    statusReasons: {
+        100: 'Continue',
+        101: 'Switching Protocols',
+        102: 'Processing',
+        200: 'OK',
+        201: 'Created',
+        202: 'Accepted',
+        203: 'Non-Authoritative Information',
+        204: 'No Content',
+        205: 'Reset Content',
+        206: 'Partial Content',
+        207: 'Multi-Status',
+        300: 'Multiple Choices',
+        301: 'Moved Permanently',
+        302: 'Moved Temporarily',
+        303: 'See Other',
+        304: 'Not Modified',
+        305: 'Use Proxy',
+        307: 'Temporary Redirect',
+        400: 'Bad Request',
+        401: 'Unauthorized',
+        402: 'Payment Required',
+        403: 'Forbidden',
+        404: 'Not Found',
+        405: 'Method Not Allowed',
+        406: 'Not Acceptable',
+        407: 'Proxy Authentication Required',
+        408: 'Request Time-out',
+        409: 'Conflict',
+        410: 'Gone',
+        411: 'Length Required',
+        412: 'Precondition Failed',
+        413: 'Request Entity Too Large',
+        414: 'Request-URI Too Large',
+        415: 'Unsupported Media Type',
+        416: 'Requested range not satisfiable',
+        417: 'Expectation Failed',
+        422: 'Unprocessable Entity',
+        423: 'Locked',
+        424: 'Failed Dependency',
+        500: 'Internal Server Error',
+        501: 'Not Implemented',
+        502: 'Bad Gateway',
+        503: 'Service Unavailable',
+        504: 'Gateway Time-out',
+        505: 'HTTP Version not supported',
+        507: 'Insufficient Storage'
+    },
+
+<span id='NijiLibrary-controller-connection-mock-property-UNSENT'>    /*** State ***/
+</span>
+    UNSENT: 0,
+    OPENED: 1,
+    HEADERS_RECEIVED: 2,
+    LOADING: 3,
+    DONE: 4,
+    readyState: 0,
+
+
+<span id='NijiLibrary-controller-connection-mock-method-open'>    /*** Request ***/
+</span>
+    open: function (method, url, async, user, password) {
+        if (typeof method !== &quot;string&quot;) {
+            throw &quot;INVALID_METHOD&quot;;
+        }
+        switch (method.toUpperCase()) {
+        case &quot;CONNECT&quot;:
+        case &quot;TRACE&quot;:
+        case &quot;TRACK&quot;:
+            throw &quot;SECURITY_ERR&quot;;
+
+        case &quot;DELETE&quot;:
+        case &quot;GET&quot;:
+        case &quot;HEAD&quot;:
+        case &quot;OPTIONS&quot;:
+        case &quot;POST&quot;:
+        case &quot;PUT&quot;:
+            method = method.toUpperCase();
+        }
+        this.method = method;
+
+        if (typeof url !== &quot;string&quot;) {
+            throw &quot;INVALID_URL&quot;;
+        }
+        this.url = url;
+        this.urlParts = this.parseUri(url);
+
+        if (async === undefined) {
+            async = true;
+        }
+        this.async = async;
+        this.user = user;
+        this.password = password;
+
+        this.readyState = this.OPENED;
+        this.onreadystatechange();
+    },
+
+    setRequestHeader: function (header, value) {
+        header = header.toLowerCase();
+
+        switch (header) {
+        case &quot;accept-charset&quot;:
+        case &quot;accept-encoding&quot;:
+        case &quot;connection&quot;:
+        case &quot;content-length&quot;:
+        case &quot;cookie&quot;:
+        case &quot;cookie2&quot;:
+        case &quot;content-transfer-encoding&quot;:
+        case &quot;date&quot;:
+        case &quot;expect&quot;:
+        case &quot;host&quot;:
+        case &quot;keep-alive&quot;:
+        case &quot;referer&quot;:
+        case &quot;te&quot;:
+        case &quot;trailer&quot;:
+        case &quot;transfer-encoding&quot;:
+        case &quot;upgrade&quot;:
+        case &quot;user-agent&quot;:
+        case &quot;via&quot;:
+            return;
+        }
+        if ((header.substr(0, 6) === &quot;proxy-&quot;)
+            || (header.substr(0, 4) === &quot;sec-&quot;)) {
+            return;
+        }
+
+        // it's the first call on this header field
+        if (this.requestHeaders[header] === undefined)
+          this.requestHeaders[header] = value;
+        else {
+          var prev = this.requestHeaders[header];
+          this.requestHeaders[header] = prev + &quot;, &quot; + value;
+        }
+
+    },
+
+    send: function (data) {
+        if ((this.readyState !== this.OPENED)
+            || this.sent) {
+            throw &quot;INVALID_STATE_ERR&quot;;
+        }
+        if ((this.method === &quot;GET&quot;) || (this.method === &quot;HEAD&quot;)) {
+            data = null;
+        }
+
+        //TODO set Content-Type header?
+        this.error = false;
+        this.sent = true;
+        this.onreadystatechange();
+
+        // fake send
+        this.requestText = data;
+        this.onsend();
+    },
+
+    abort: function () {
+        this.responseText = null;
+        this.error = true;
+        for (var header in this.requestHeaders) {
+            delete this.requestHeaders[header];
+        }
+        delete this.requestText;
+        this.onreadystatechange();
+        this.onabort();
+        this.readyState = this.UNSENT;
+    },
+
+
+<span id='NijiLibrary-controller-connection-mock-property-status'>    /*** Response ***/
+</span>
+    status: 0,
+    statusText: &quot;&quot;,
+
+    getResponseHeader: function (header) {
+        if ((this.readyState === this.UNSENT)
+            || (this.readyState === this.OPENED)
+            || this.error) {
+            return null;
+        }
+        return this.responseHeaders[header.toLowerCase()];
+    },
+
+    getAllResponseHeaders: function () {
+        var r = &quot;&quot;;
+        for (var header in this.responseHeaders) {
+            if ((header === &quot;set-cookie&quot;) || (header === &quot;set-cookie2&quot;)) {
+                continue;
+            }
+            //TODO title case header
+            r += header + &quot;: &quot; + this.responseHeaders[header] + &quot;\r\n&quot;;
+        }
+        return r;
+    },
+
+    responseText: &quot;&quot;,
+    responseXML: undefined, //TODO
+
+
+<span id='NijiLibrary-controller-connection-mock-method-onload'>    /*** See http://www.w3.org/TR/progress-events/ ***/
+</span>
+    onload: function () {
+        // Instances should override this.
+    },
+
+    onprogress: function () {
+        // Instances should override this.
+    },
+
+    onerror: function () {
+        // Instances should override this.
+    },
+
+    onabort: function () {
+        // Instances should override this.
+    },
+
+    onreadystatechange: function () {
+        // Instances should override this.
+    },
+
+
+<span id='NijiLibrary-controller-connection-mock-method-onsend'>    /*** Properties and methods for test interaction ***/
+</span>
+    onsend: function () {
+        // Instances should override this.
+    },
+
+    getRequestHeader: function (header) {
+        return this.requestHeaders[header.toLowerCase()];
+    },
+
+    setResponseHeader: function (header, value) {
+        this.responseHeaders[header.toLowerCase()] = value;
+    },
+
+    makeXMLResponse: function (data) {
+        var xmlDoc;
+        // according to specs from point 3.7.5:
+        // &quot;1. If the response entity body is null terminate these steps
+        //     and return null.
+        //  2. If final MIME type is not null, text/xml, application/xml,
+        //     and does not end in +xml terminate these steps and return null.
+        var mimetype = this.getResponseHeader(&quot;Content-Type&quot;);
+        mimetype = mimetype &amp;&amp; mimetype.split(';', 1)[0];
+        if ((mimetype == null) || (mimetype == 'text/xml') ||
+           (mimetype == 'application/xml') ||
+           (mimetype &amp;&amp; mimetype.substring(mimetype.length - 4) == '+xml')) {
+            // Attempt to produce an xml response
+            // and it will fail if not a good xml
+            try {
+                if (window.DOMParser) {
+                    var parser = new DOMParser();
+                    xmlDoc = parser.parseFromString(data, &quot;text/xml&quot;);
+                } else { // Internet Explorer
+                    xmlDoc = new ActiveXObject(&quot;Microsoft.XMLDOM&quot;);
+                    xmlDoc.async = &quot;false&quot;;
+                    xmlDoc.loadXML(data);
+                }
+            } catch (e) {
+                // according to specs from point 3.7.5:
+                // &quot;3. Let document be a cookie-free Document object that
+                // represents the result of parsing the response entity body
+                // into a document tree following the rules from the XML
+                //  specifications. If this fails (unsupported character
+                // encoding, namespace well-formedness error etc.), terminate
+                // these steps return null.&quot;
+                xmlDoc = null;
+            }
+            // parse errors also yield a null.
+            if ((xmlDoc &amp;&amp; xmlDoc.parseError &amp;&amp; xmlDoc.parseError.errorCode != 0)
+                || (xmlDoc &amp;&amp; xmlDoc.documentElement &amp;&amp; xmlDoc.documentElement.nodeName == &quot;parsererror&quot;)
+                || (xmlDoc &amp;&amp; xmlDoc.documentElement &amp;&amp; xmlDoc.documentElement.nodeName == &quot;html&quot;
+                    &amp;&amp;  xmlDoc.documentElement.firstChild &amp;&amp;  xmlDoc.documentElement.firstChild.nodeName == &quot;body&quot;
+                    &amp;&amp;  xmlDoc.documentElement.firstChild.firstChild &amp;&amp; xmlDoc.documentElement.firstChild.firstChild.nodeName == &quot;parsererror&quot;)) {
+                xmlDoc = null;
+            }
+        } else {
+            // mimetype is specified, but not xml-ish
+            xmlDoc = null;
+        }
+        return xmlDoc;
+    },
+
+    // Call this to simulate a server response
+    receive: function (status, data) {
+        if ((this.readyState !== this.OPENED) || (!this.sent)) {
+            // Can't respond to unopened request.
+            throw &quot;INVALID_STATE_ERR&quot;;
+        }
+
+        this.status = status;
+        this.statusText = status + &quot; &quot; + this.statusReasons[status];
+        this.readyState = this.HEADERS_RECEIVED;
+        this.onprogress();
+        this.onreadystatechange();
+
+        this.responseText = data;
+        this.responseXML = this.makeXMLResponse(data);
+
+        this.readyState = this.LOADING;
+        this.onprogress();
+        this.onreadystatechange();
+
+        this.readyState = this.DONE;
+        this.onreadystatechange();
+        this.onprogress();
+        this.onload();
+    },
+
+    // Call this to simulate a request error (e.g. NETWORK_ERR)
+    err: function (exception) {
+        if ((this.readyState !== this.OPENED) || (!this.sent)) {
+            // Can't respond to unopened request.
+            throw &quot;INVALID_STATE_ERR&quot;;
+        }
+
+        this.responseText = null;
+        this.error = true;
+        for (var header in this.requestHeaders) {
+            delete this.requestHeaders[header];
+        }
+        this.readyState = this.DONE;
+        if (!this.async) {
+            throw exception;
+        }
+        this.onreadystatechange();
+        this.onerror();
+    },
+
+    // Convenience method to verify HTTP credentials
+    authenticate: function (user, password) {
+        if (this.user) {
+            return (user === this.user) &amp;&amp; (password === this.password);
+        }
+
+        if (this.urlParts.user) {
+            return ((user === this.urlParts.user)
+                    &amp;&amp; (password === this.urlParts.password));
+        }
+
+        // Basic auth.  Requires existence of the 'atob' function.
+        var auth = this.getRequestHeader(&quot;Authorization&quot;);
+        if (auth === undefined) {
+            return false;
+        }
+        if (auth.substr(0, 6) !== &quot;Basic &quot;) {
+            return false;
+        }
+        if (typeof atob !== &quot;function&quot;) {
+            return false;
+        }
+        auth = atob(auth.substr(6));
+        var pieces = auth.split(':');
+        var requser = pieces.shift();
+        var reqpass = pieces.join(':');
+        return (user === requser) &amp;&amp; (password === reqpass);
+    },
+
+    // Parse RFC 3986 compliant URIs.
+    // Based on parseUri by Steven Levithan &lt;stevenlevithan.com&gt;
+    // See http://blog.stevenlevithan.com/archives/parseuri
+    parseUri: function (str) {
+        var pattern = /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/;
+        var key = [&quot;source&quot;, &quot;protocol&quot;, &quot;authority&quot;, &quot;userInfo&quot;, &quot;user&quot;,
+                   &quot;password&quot;, &quot;host&quot;, &quot;port&quot;, &quot;relative&quot;, &quot;path&quot;,
+                   &quot;directory&quot;, &quot;file&quot;, &quot;query&quot;, &quot;anchor&quot;];
+        var querypattern = /(?:^|&amp;)([^&amp;=]*)=?([^&amp;]*)/g;
+
+        var match = pattern.exec(str);
+		var uri = {};
+		var i = 14;
+	    while (i--) {
+            uri[key[i]] = match[i] || &quot;&quot;;
+        }
+
+	    uri.queryKey = {};
+	    uri[key[12]].replace(querypattern, function ($0, $1, $2) {
+		    if ($1) {
+                uri.queryKey[$1] = $2;
+            }
+	    });
+
+	    return uri;
+    }
+};
+
+
+/*
+ * A small mock &quot;server&quot; that intercepts XMLHttpRequest calls and
+ * diverts them to your handler.
+ *
+ * Usage:
+ *
+ * 1. Initialize with either
+ *       var server = new MockHttpServer(your_request_handler);
+ *    or
+ *       var server = new MockHttpServer();
+ *       server.handle = function (request) { ... };
+ *
+ * 2. Call server.start() to start intercepting all XMLHttpRequests.
+ *
+ * 3. Do your tests.
+ *
+ * 4. Call server.stop() to tear down.
+ *
+ * 5. Profit!
+ */
+function MockHttpServer (handler) {
+    if (handler) {
+        this.handle = handler;
+    }
+};
+MockHttpServer.prototype = {
+
+    start: function () {
+        var self = this;
+
+        function Request () {
+            this.onsend = function () {
+                self.handle(this);
+            };
+            MockHttpRequest.apply(this, arguments);
+        }
+        Request.prototype = MockHttpRequest.prototype;
+
+        window.OriginalHttpRequest = window.XMLHttpRequest;
+        window.XMLHttpRequest = Request;
+    },
+
+    stop: function () {
+        window.XMLHttpRequest = window.OriginalHttpRequest;
+    },
+
+    handle: function (request) {
+        // Instances should override this.
+    }
+};
+</pre>
+</body>
+</html>

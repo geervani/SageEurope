@@ -1,0 +1,115 @@
+{
+    "name" : "SageCME",
+
+    "indexHtmlPath" : "index.html",
+
+    "url" : null,
+
+    "js" : [
+        {
+            "path" : "./cordova.js"
+        },
+        {
+            "path" : "./resources/js/splashscreen.js"
+        },
+        {
+            "path" : "./resources/strings/virtual/en.js"
+        },
+        {
+            "path" : "./resources/strings/virtual/es.js"
+        },
+        {
+            "path" : "./resources/strings/virtual/fr.js"
+        },
+        {
+            "path" : "./resources/strings/virtual/de.js"
+        },
+        {
+            "path" : "resources/vendor/hermesjs/src/libs/underscore.min.js"
+        },
+        {
+            "path" : "resources/vendor/hermesjs/src/libs/backbone-min.js"
+        },
+        {
+            "path" : "resources/vendor/hermesjs/src/libs/jquery-2.0.2.min.js"
+        },
+        {
+            "path" : "./resources/js/masonry.pkgd.min.js"
+        },
+        {
+            "path" : "resources/vendor/hermesjs/src/libs/q-0.9.2.js"
+        },
+        {
+            "path" : "resources/vendor/hermesjs/src/libs/require.js"
+        },
+        {
+            "path" : "./resources/js/public-load-libs.js"
+        },
+        {
+            "path"        : "touch/sencha-touch.js",
+            "x-bootstrap" : true
+        },
+        {
+            "path"        : "bootstrap.js",
+            "x-bootstrap" : true
+        },
+        {
+            "path"   : "app.js",
+            "bundle" : true,
+            /* Indicates that all class dependencies are concatenated into this file when build */
+            "update" : "delta"
+        }
+    ],
+
+    "css" : [
+        {
+            "path"   : "resources/css/app.css",
+            "update" : "delta"
+        }
+    ],
+
+
+    "appCache" : {
+        "cache" : [
+            "index.html"
+        ],
+
+
+        "network" : [
+            "*"
+        ],
+
+
+        "fallback" : []
+    },
+
+
+    "resources" : [
+        "resources/img",
+        "resources/videos",
+        "resources/icons",
+        "resources/startup",
+        "resources/fonts",
+        "resources/js",
+        "resources/vendor",
+        "cordova_plugins.js",
+        "dataviz",
+        "plugins"
+    ],
+
+
+    "ignore" : [
+        "\.svn$",
+        "\.git$"
+    ],
+
+
+    "archivePath" : "archive",
+
+
+    "requires" : [
+    ],
+
+
+    "id" : "5e438fed-3da0-4c83-9b1a-f2061c8958bb"
+}

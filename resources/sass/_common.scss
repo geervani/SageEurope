@@ -1,0 +1,186 @@
+/**
+ * @author Quentin Decre <quentin.decre@niji.fr>
+ * @date: 03/10/13
+ *
+ * Contains common style (buttons...)
+ */
+
+html, body, .x-button-label, .x-badge {
+  font-family: "Foco", Foco, "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
+}
+
+a {
+  color: $linkGreen;
+  font-weight: bold;
+  text-decoration: none;
+  &:hover {
+    border-bottom: solid 1px $veryLightGreen;
+  }
+}
+
+.x-button.x-button-action .x-button-label, .x-button-normal .x-button-label {
+  color: white;
+}
+
+// Toolbar
+.x-toolbar.x-docked-top {
+  background: $darkGreen;
+  @include border-radius(0px, 0px);
+  border-bottom: none;
+  padding-top: 18px;
+  height: 64px;
+
+  .x-title {
+    color: white;
+    font-size: 15pt;
+    //font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .x-button, .x-button:before,
+  .x-button.x-button-back, .x-button.x-button-back:before {
+    color: white;
+  }
+
+}
+
+// Tabbar
+.x-tabbar.x-docked-bottom {
+  min-height: 80px;
+  background-color: $darkGreen;
+  .x-tab {
+    height: 80px;
+    width: 80px;
+    .x-button-icon {
+      color: white;
+    }
+    .x-button-icon:before {
+      font-size: 30px;
+      color: white;
+      line-height: 60px;
+    }
+    .x-button-label {
+      font-size: 12pt;
+      color: white;
+      line-height: 80px;
+    }
+  }
+}
+
+//Buttons
+.x-button {
+  @include border-radius(0px, 0px);
+  color: white;
+  border: none;
+}
+
+.x-button-primary {
+  @include green-gradient;
+  height: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  .x-button-label {
+    font-size: 16pt;
+  }
+
+  &.x-button-pressing {
+    background: $lightGreen;
+  }
+}
+
+.x-button-secondary {
+  background-color: $grey4;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: black;
+  .x-button-label {
+    font-size: 12pt;
+  }
+}
+
+.x-button-icon {
+  color: white;
+}
+
+.x-toolbar.x-docked-top .x-button-back {
+  padding: 3px;
+  padding-left: 7px;
+  padding-right: 15px;
+  .x-button-label {
+    display: none;
+  }
+}
+
+.x-field-input .x-clear-icon {
+  background: url("../img/ico-close.png") no-repeat;
+  background-position: center center;
+  background-size: 55% 55%;
+}
+
+.x-navigation-bar.x-dock-item.x-docked-bottom .x-button-label {
+  color: $grey1;
+}
+
+.x-loading-mask {
+  .x-mask-inner {
+    padding: 0.4em 2em;
+
+    .x-mask-message {
+      color: #333;
+      font-size: 15pt;
+      letter-spacing: 1px;
+    }
+
+
+  }
+}
+
+.x-loading-spinner {
+  margin-top: -35px;
+  > span {
+    &.x-loading-top::after {
+      background-color: rgba(0, 127, 100, 0.9);
+    }
+    &.x-loading-top {
+      background-color: rgba(0, 127, 100, 0.99);
+    }
+    &.x-loading-top::before {
+      background-color: rgba(0, 127, 100, 0.15);
+    }
+    &.x-loading-right::after {
+      background-color: rgba(0, 127, 100, 0.2);
+    }
+    &.x-loading-right {
+      background-color: rgba(0, 127, 100, 0.25);
+    }
+    &.x-loading-right::before {
+      background-color: rgba(0, 127, 100, 0.3);
+    }
+    &.x-loading-bottom::after {
+      background-color: rgba(0, 127, 100, 0.35);
+    }
+    &.x-loading-bottom {
+      background-color: rgba(0, 127, 100, 0.4);
+    }
+    &.x-loading-bottom::before {
+      background-color: rgba(0, 127, 100, 0.5);
+    }
+    &.x-loading-left::after {
+      background-color: rgba(0, 127, 100, 0.6);
+    }
+    &.x-loading-left {
+      background-color: rgba(0, 127, 100, 0.7);
+    }
+    &.x-loading-left::before {
+      background-color: rgba(0, 127, 100, 0.8);
+    }
+  }
+}
+
+.x-carousel-indicator {
+  min-height: 24px;
+  span.x-carousel-indicator-active {
+    background-color: $darkGreen;
+  }
+}

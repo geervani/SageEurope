@@ -1,0 +1,15 @@
+/**
+ * @author Quentin Decre <quentin.decre@niji.fr>
+ * @date 23/09/13
+ *
+ * Contains custom app mixins
+ */
+
+@import "compass/css3";
+
+@mixin green-gradient() {
+  @include background(linear-gradient($lightGreen, $darkGreen));
+}
+@mixin green-gradient() {
+  @include background(linear-gradient($lightGreen, $darkGreen));
+}

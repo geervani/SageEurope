@@ -1,0 +1,113 @@
+.home-style{
+	background: rgb(228,228,228);
+	.acceuil-label{
+		color: #717275;
+		margin-bottom: 12px;
+		margin-left: 23px;
+		font-size: 24px;
+		margin-top: 16px;
+	}
+
+	.seeAll-label{
+		color: #717275;
+		margin-bottom: 12px;
+		margin-left: 23px;
+		font-size: 19px;
+		background: #f2f2f2;
+		width: 358px;
+		height: 60px;
+		.x-button-label{
+			color: #AEAEAE;
+			text-align: left;
+			margin-left: 7px;
+		}
+		&.x-button-pressing .x-button-label {
+		    color: #717275;
+		}
+	}
+
+	.x-toolbar {
+		background-color: #f8f9f9;
+		min-height: 2.85em;
+		border-bottom: solid 1px grey;
+	}
+
+	.home-kpi-button,
+	.home-client-button ,
+	.home-facture-button ,
+	.home-order-button ,
+	.home-delivery-button ,
+	.home-devis-button {
+		border: 0;
+		border-bottom: solid 3px #FFFFFF;
+		background-color: rgba(255, 255, 255, 0);
+		margin: 0 14px;
+		margin-bottom: -12.5px;
+		height: 2.0em;
+
+		.x-button-label{
+			color: #717275;
+			width: 90px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			display: inline-block;
+			overflow: hidden;
+		}
+	}
+
+	.home-kpi-button.home-kpi-button-active {
+		border-bottom-color: #32BA56;
+	}
+	.home-client-button.home-client-button-active{
+		border-bottom-color: rgb(102,171,175);
+	} 
+	.home-facture-button.home-facture-button-active{
+		border-bottom-color: rgba(0,169,173,0.9);
+	} 
+	.home-order-button.home-order-button-active{
+		border-bottom-color: rgba(102,204,221,0.9);
+	} 
+	.home-delivery-button.home-delivery-button-active{
+		border-bottom-color: rgba(192,134,233,0.9);
+	} 
+	.home-devis-button.home-devis-button-active{
+		border-bottom-color: rgba(247,110,110,0.9);
+	} 
+
+	.home-kpi-button {
+		&.x-button-pressing .x-button-label {
+		    color: #32BA56;
+		}
+	}
+	.home-client-button {
+		&.x-button-pressing .x-button-label {
+		    color: rgb(102,171,175);
+		}
+	}
+
+	.home-facture-button {
+		&.x-button-pressing .x-button-label {
+		    color: rgba(0,169,173,0.9);
+		}
+	}
+
+	.home-order-button {
+		&.x-button-pressing .x-button-label {
+		    color: rgba(102,204,221,0.9);
+		}
+	}
+
+	.home-delivery-button {
+		&.x-button-pressing .x-button-label {
+		    color: rgba(192,134,233,0.9);
+		}
+	}
+
+	.home-devis-button{
+		&.x-button-pressing .x-button-label {
+		    color: rgba(247,110,110,0.9);
+		}
+	}
+
+
+}

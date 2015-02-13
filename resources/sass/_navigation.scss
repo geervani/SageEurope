@@ -1,0 +1,82 @@
+/**
+ * @author Quentin Decre <quentin.decre@niji.fr>
+ * @date: 03/10/13
+ *
+ * Include styles for the split view
+ */
+
+.not-fullscreen {
+  #shrink-button {
+    display: none !important;
+  }
+}
+
+.fullscreen {
+  #fullscreen-button, .main-view .x-button-back {
+    display: none !important;
+  }
+}
+
+.main-view{
+  .customer-favori-button, .customer-non-favori-button{
+    width: 30px;
+    height: 30px;
+    margin-top: -5px;
+  }
+  .customer-favori-button{
+    background: url("../img/favori2.png");
+    background-size: 30px 30px;
+  }
+  .customer-non-favori-button{
+    background: url("../img/NonFavori.png");
+    background-size: 30px 30px;
+  }
+  .kpi-detail-favoriButton {
+    background: url("../img/favorite.png");
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    margin-top: -5px;
+  }
+  .kpi-detail-NonfavoriButton {
+    background: url("../img/non_favorite.png");
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    margin-top: -5px;
+  }
+  .select-field {
+    margin-left: -17px;
+    .x-field-input{
+      border: 0px solid #cccccc;
+      border-radius: 0px; 
+      margin-top: 4px;
+    }
+  }
+}
+.root-view {
+  .menu-view {
+    border-right: solid 1px $grey1;
+    transition: width 0.5s;
+    -webkit-transition: width 0.5s;
+
+    .x-toolbar.x-docked-top {
+      background: #4d4f53;
+    }
+  }
+}
+
+.x-button .x-button-icon.sync {
+  background-size: 40px 40px;
+  height: 30px;
+  width: 40px;
+}
+.online .x-button .x-button-icon.sync{
+  background-image: url('../img/ico-sync.png');
+}
+.offline .x-button .x-button-icon.sync{
+  background-image: url('../img/ico-sync_off.png');
+}
+.syncing .x-button .x-button-icon.sync{
+  background-image: url('../img/ico-sync_blink.gif');
+}

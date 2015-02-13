@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='NijiLibrary-controller-NijiViewPatch'>/**
+</span> * Patching navigation view to fire event before popping
+ */
+Ext.define('NijiLibrary.controller.NijiViewPatch', {
+    override: 'Ext.navigation.View',
+<span id='NijiLibrary-controller-NijiViewPatch-method-pop'>    pop: function(count) {
+</span>        this.fireEvent('beforePop');
+        if (this.beforePop(count)) {
+            return this.doPop();
+        }
+    }
+});
+
+<span id='NijiLibrary-controller-NijiRoutingController'>/**
+</span> * @author Quentin Decré &lt;quentin.decre@niji.fr&gt;
+ * @docauthor Quentin Decré &lt;quentin.decre@niji.fr&gt;
+ * @class NijiLibrary.controller.NijiRoutingController
+ *
+ * This is a special controller designed to manage page transitions in a navigationview.
+ * Basically, a navigation view enables you to push and pop pages inside it. But to have a
+ * real app-like navigation, you have to :
+ * - use site/app maps (with urls)
+ * - have button in the navbar which change depending of the current page
+ * - handling android backbutton (on phonegap)
+ *
+ * It also simplifies your life by enabling you to :
+ * - do checks before going to a page (check authentification, do some operations).
+ * - do some operations after displaying the page
+ *
+ */
+
+Ext.define('NijiLibrary.controller.NijiRoutingController', {
+    extend: 'Ext.app.Controller',
+
+    config: {
+<span id='NijiLibrary-controller-NijiRoutingController-cfg-navigationViewRef'>        /**
+</span>         * @cfg {string} [navigationViewRef=''] The ID of the navigation view to manage.
+         *
+         * Note : it will automatically create a reference called nijiRoutingControllerNavigationViewReference,
+         * which is long enough to avoid collision with one of yours.
+         *  @accessor
+         */
+        navigationViewRef: '',
+
+<span id='NijiLibrary-controller-NijiRoutingController-cfg-initialRoute'>        /**
+</span>         * @cfg {string} [initialRoute=null] The route of the inital page to show
+         *  @accessor
+         */
+        initialRoute: null,
+
+<span id='NijiLibrary-controller-NijiRoutingController-cfg-forceInitialRoute'>        /**
+</span>         * @cfg {boolean} [forceInitialRoute=false] Force the display of this initialRoute page, even if the app is loaded with another hash
+         *  @accessor
+         */
+        forceInitialRoute: false,
+
+<span id='NijiLibrary-controller-NijiRoutingController-cfg-pages'>        /**
+</span>         * @cfg {Array} [pages=[]]this config is an array of the pages of your application, where each page is an object like
+         * below :
+         *
+         *   {
+         *        route   : 'your/routeurl/with/optional/:params/in/it',
+         *        view    : 'YourAppName.view.YourPageName',
+         *        title   : 'This is your page title',
+         *        buttons : ['buttons-id', 'that-you-want', 'to-have'],
+         *        before  : ['functionsThatYou', 'wantToExecuteBefore', 'showingThePage'],
+         *        after  : ['oherFunctionsThatYou', 'wantToExecuteAFTER', 'showingThePage'],
+         *        isRoot: false
+         *    }
+         *
+         * This is what each page property correspond to :
+         *
+         * *    route : whenever this  url is matched in the address bar, before function are executed.
+         * If all before functions have resumed the action, the specified page is loaded, then after functions
+         * are called.
+         * *    view : the fully qualified class name of your view
+         * *    title : the title of your page
+         * *    buttons : an array containing the id of the buttons you want to show on this page
+         * *    before : an array containing the name of the functions to execute before showing the page
+         * These are usually used to run pre-processing functions like authentication before a certain
+         * function is executed. You will get action as a first parameter, which let you the choice to
+         * resume the action or doing something else :
+         *          //this is run before showing a page for which you must be logged in
+         *         authenticate: function(action) {
+         *             NijiMobile.authenticate({
+         *                 success: function() {
+         *                     action.resume();
+         *                 },
+         *                 failure: function() {
+         *                     Ext.Msg.alert('Not Logged In', &quot;You can't do that, you're not logged in&quot;);
+         *                 }
+         *             });
+         *         }
+         * *    after : an array of functions (like before) to execute after the page has been shown. You will get
+         * you url parameters as arguments of these functions :         *
+         *          //this is run after showing a page /model/:id where id is the id of the model to display.
+         *         refreshContent: function(modelID) {
+         *             Ext.getCmp(&quot;modelContainer&quot;).setData(Ext.getStore(&quot;ModelStore&quot;).getById(modelID));         *
+         *         }
+         * *    isRoot : (false by default) means that your page MUST be a first page of the navigation view. So all pages
+         *  will be removed before adding this one. It will become your first page.
+         *
+         *  For each page, a function to display this page will be generated.
+         *  When your route is &quot;my/route/with/:id/inside&quot; the function will be &quot;goToMyRouteWithIdInside(123)&quot;. You can add
+         *  as many params as there is in your Url. But you can also do window.location.hash = &quot;my/route/with/123/inside&quot;
+         * @accessor
+         */
+        pages: [],
+
+<span id='NijiLibrary-controller-NijiRoutingController-cfg-control'>        control: {
+</span>            nijiRoutingControllerNavigationViewReference: {
+                pop: 'onMainViewPop',
+                push: 'onMainviewPush',
+                beforePop: 'onMainViewBeforePop'
+            }
+        }
+    },
+
+<span id='NijiLibrary-controller-NijiRoutingController-method-constructor'>    /**
+</span>     * Constructs a new Controller instance
+     */
+    constructor: function(config) {
+        // creating a reference to the navigation view
+        this.config.refs.nijiRoutingControllerNavigationViewReference = this.config.navigationViewRef;
+
+        var pages = this.config.pages;
+
+        // The callback generator for the function which shows a page
+        var generateShowFunction = function(view, title, isRoot, config, buttonsToShow, afterFunctions) {
+            // dont't know why, but arguments variable doesn't work without any parameters here
+            return function(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9) {
+                // if root is undefined, set it to false
+                isRoot = (typeof(isRoot) === &quot;boolean&quot;) ? isRoot : false;
+                // if the page is root, we set it as a unique item, if not, we push it as the main item
+                var nijiRoutingControllerNavigationViewReference = this.getNijiRoutingControllerNavigationViewReference(),
+                    execAfter = false;
+
+                // We have to apply a transition only if the last pushed hash is different from the window location hash
+                if (this.hashes[this.hashes.length - 1] !== window.location.hash) {
+                    //push the new view
+                    config = Ext.Object.merge({
+                        title: title
+                    }, config);
+                    if (isRoot) {
+                        //removing back button
+                        nijiRoutingControllerNavigationViewReference.getNavigationBar().backButtonStack = [];
+                        nijiRoutingControllerNavigationViewReference.setActiveItem(Ext.create(view, config));
+                    }
+                    else {
+                        nijiRoutingControllerNavigationViewReference.push(Ext.create(view, config));
+                    }
+                    execAfter = true;
+                }
+
+                //retreiving buttons to show
+                buttonsToShow = buttonsToShow || [];
+                var buttonCmpToShow = Ext.Array.map(buttonsToShow, function(button) {
+                    return Ext.getCmp(button.replace(&quot;#&quot;, &quot;&quot;));
+                });
+                //retreiving buttons to hide (all buttons in the nav bar minus those to show)
+                var buttonCmpToHide = Ext.Array.difference(nijiRoutingControllerNavigationViewReference.query(&quot;titlebar button&quot;), buttonCmpToShow);
+                //hiding buttons to hide
+                Ext.Array.each(buttonCmpToHide, function(button) {
+                    // we do not hide the back button, unless the new view is root
+                    if (isRoot || !Ext.Array.contains(button.element.classList, &quot;x-button-back&quot;)) {
+                        button.hide();
+                    }
+                });
+                //hiding buttons to hide
+                Ext.Array.each(buttonCmpToShow, function(button) {
+                    button.show();
+                });
+                if (execAfter) {
+                    //execute after functions
+                    Ext.Array.each(afterFunctions, function(fnName) {
+                        if (typeof(this[fnName]) === &quot;function&quot;) {
+                            //passing arguments to give url params
+                            this[fnName](arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+                        }
+                    }, this);
+                }
+            }
+        };
+
+        // The callback generator for the function which is used to go to a given page.
+        // it only change the current URL
+        var generateGoToFunction = function(route) {
+            return function() {
+                var urlParts = route.split(&quot;/&quot;);
+                // you can add as much params as there is in the url
+                var urlParams = arguments;
+                var replacedParams = 0;
+                for (var i = 0; i &lt; urlParts.length; i++) {
+                    // starts with :, and has enough params given to the method
+                    // and is convertable to a string
+                    if (urlParts[i][0] === &quot;:&quot; &amp;&amp; urlParams.length &gt;= replacedParams + 1 &amp;&amp; typeof(urlParams[replacedParams].toString) === &quot;function&quot;) {
+                        urlParts[i] = urlParams[replacedParams].toString();
+                        replacedParams++;
+                    }
+                }
+                window.location.hash = urlParts.join(&quot;/&quot;);
+            }
+        };
+
+        Ext.Array.each(pages, function(page) {
+            // The accessor name is the route where &quot;my/route/with/:id/inside&quot; become &quot;MyRouteWithIdInside&quot;
+            var accessorName = Ext.Array.map(page.route.split(&quot;/&quot;), function(str) {
+                str = str.replace(&quot;:&quot;, &quot;&quot;);
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            }).join(&quot;&quot;);
+            var showFunctionName = &quot;show&quot; + accessorName,
+                routeToFunctionName = &quot;goTo&quot; + accessorName;
+
+            if (typeof(page.route) === &quot;string&quot;) {
+                this.config.routes[page.route] = showFunctionName;
+            }
+            this[showFunctionName] = generateShowFunction(page.view, page.title, page.isRoot, page.config, page.buttons, page.after);
+            this[routeToFunctionName] = generateGoToFunction(page.route);
+
+            if (typeof(page.before) === &quot;string&quot; || Array.isArray(page.before)) {
+                this.config.before[showFunctionName] = page.before;
+            }
+        }, this);
+
+        this.callParent(arguments);
+
+        // register the android backbutton event
+        var me = this;
+        document.addEventListener(&quot;backbutton&quot;, function() {
+            me.androidBackCallback(arguments);
+        }, false);
+    },
+
+<span id='NijiLibrary-controller-NijiRoutingController-property-the'>    /**
+</span>     * @property {Array} the history of window.location.hash to restore it when going back
+     * @private
+     */
+    hashes: [],
+
+<span id='NijiLibrary-controller-NijiRoutingController-method-onMainViewPop'>    /**
+</span>     * Remove the poped page hash from array and restore the hash of the new active page
+     */
+    onMainViewPop: function() {
+        this.hashes.pop();
+        window.location.hash = this.hashes[this.hashes.length - 1];
+    },
+
+<span id='NijiLibrary-controller-NijiRoutingController-method-onMainViewBeforePop'>    /**
+</span>     * Remove the buttons
+     */
+    onMainViewBeforePop: function() {
+        var nijiRoutingControllerNavigationViewReference = this.getNijiRoutingControllerNavigationViewReference(),
+            buttonCmpToHide = nijiRoutingControllerNavigationViewReference.query(&quot;titlebar button&quot;);
+        //hiding buttons to hide
+        Ext.Array.each(buttonCmpToHide, function(button) {
+            // we do not hide the back button
+            if (!Ext.Array.contains(button.element.classList, &quot;x-button-back&quot;)) {
+                button.hide();
+            }
+        });
+    },
+
+<span id='NijiLibrary-controller-NijiRoutingController-method-onMainviewPush'>    /**
+</span>     * Saves the new active page hash in array
+     */
+    onMainviewPush: function() {
+        this.hashes.push(window.location.hash);
+    },
+
+<span id='NijiLibrary-controller-NijiRoutingController-method-androidBackCallback'>    /**
+</span>     * A callback which is called by phonegap when the user tap on the android back button
+     */
+    androidBackCallback: function() {
+        var mainView = this.getNijiRoutingControllerNavigationViewReference();
+        if (mainView.getItems().length &gt; 1) {
+            mainView.pop();
+        }
+    },
+
+<span id='NijiLibrary-controller-NijiRoutingController-method-launch'>    launch: function() {
+</span>        if (typeof(this.getInitialRoute()) === &quot;string&quot; &amp;&amp; (this.getForceInitialRoute() || window.location.hash === &quot;&quot;)) {
+            window.location.hash = this.getInitialRoute();
+        }
+    }
+});</pre>
+</body>
+</html>

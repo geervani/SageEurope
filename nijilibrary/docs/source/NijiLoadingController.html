@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='NijiLibrary-controller-LoadingController'>/**
+</span> * @author Alexis Martin &lt;alexis.martin@niji.fr&gt;
+ * @docauthor Alexis Martin &lt;pierre.despagne@niji.fr&gt;
+ * @class NijiLibrary.controller.LoadingController
+ *
+ *
+ * This is a special controller designed to display custom loading message during ajax request.
+ * It'll use the AjaxPatch, and display the loadingMessage you've put in the config of the AjaxRequest.
+ * her is a part of an ajax request containing loadingMessage :
+ * &lt;pre&gt;&lt;code&gt;
+ * Ext.Ajax.request(
+ *  {
+ *      loadingMessage : 'MyCustomMessage'
+ *  }
+ *  &lt;/code&gt;&lt;/pre&gt;
+ *
+ *
+ *
+ * In order to use this component you have to declare a special controller in your app (for exemple a LoadingController) extend the NijiLoadingController
+ * and add you LoadingController in your app.js.
+ * here is an example :
+ * &lt;pre&gt;&lt;code&gt;
+ * Ext.define(&quot;TDFCristal.controller.LoadingController&quot;, {
+ *    extend: 'NijiLibrary.controller.NijiLoadingController',
+ *    requires: [
+ *          'NijiLibrary.controller.NijiLoadingController',
+ *    ],
+ *    config: {
+ *          message: 'Loading...'
+ *    },
+ *
+ *    setDefaultLoadingMessage: function(defaultLoadingMessage){
+ *          this.setMessage(defaultLoadingMessage);
+ *    }
+ *  });
+ *  &lt;/code&gt;&lt;/pre&gt;
+ *  You can directly edit the message in this file.
+ *
+ */
+
+Ext.define('NijiLibrary.controller.NijiLoadingController', {
+    extend: 'Ext.app.Controller',
+
+    config: {
+<span id='NijiLibrary-controller-LoadingController-cfg-mask'>        mask: {
+</span>            xtype: 'loadmask',
+<span id='NijiLibrary-controller-LoadingController-property-message'>            /**
+</span>             * Here you can add your custom message
+             * @type {String}
+             */
+            message: ''
+        },
+<span id='NijiLibrary-controller-LoadingController-cfg-requestId'>        requestId: 0,
+</span><span id='NijiLibrary-controller-LoadingController-cfg-requests'>        requests: {}
+</span>    },
+
+<span id='NijiLibrary-controller-LoadingController-method-launch'>    launch: function() {
+</span>        var controller = this;
+        Ext.Ajax.on('beforerequest', function(e, r) {
+            controller.addRequest(r);
+        });
+        Ext.Ajax.on('requestcomplete', function(e, r) {
+            controller.removeRequest(r);
+        });
+        Ext.Ajax.on('requestexception', function(e, r) {
+            controller.removeRequest(r);
+        });
+    },
+<span id='NijiLibrary-controller-LoadingController-method-addRequest'>    /**
+</span>     * Get the req loading message and display it with the spinner
+     * @param req
+     */
+    addRequest: function(req) {
+        var msg = req.loadingMessage,
+            id = ++this.config.requestId;
+        this.config.requests[id] = msg;
+        if (msg == undefined) {
+            msg = this.getMessage();
+        }
+        this.showMask(msg);
+    },
+<span id='NijiLibrary-controller-LoadingController-method-removeRequest'>    /**
+</span>     * Hide the req loading message and the spinner.
+     * @param req
+     */
+    removeRequest: function(req) {
+        var id = req.requestId;
+        delete this.config.requests[id];
+        var keys = Object.keys(this.config.requests);
+        if (keys.length) {
+            var lastId = keys[keys.length - 1];
+            this.showMask(this.config.requests[lastId]);
+        }
+        else {
+            this.hideMask();
+        }
+    },
+
+<span id='NijiLibrary-controller-LoadingController-method-showMask'>    /**
+</span>     * Show the spinner with msg
+     * @param msg
+     */
+    showMask: function(msg) {
+        var mask = this.getMask();
+        mask.message = msg;
+        Ext.Viewport.setMasked(mask);
+    },
+<span id='NijiLibrary-controller-LoadingController-method-hideMask'>    /**
+</span>     * Hide the spinner
+     */
+    hideMask: function() {
+        Ext.Viewport.setMasked(false);
+    }
+});</pre>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='NijiLibrary-model-Request'>/**
+</span> * @author Pierre Despagne &lt;pierre.despagne@niji.fr&gt;
+ * @docauthor Pierre Despagne &lt;pierre.despagne@niji.fr&gt;
+ * @class NijiLibrary.model.Request
+ * 
+ * 
+ */
+Ext.define('NijiLibrary.model.Request', {
+    extend: 'Ext.data.Model',
+
+
+    config: {
+<span id='NijiLibrary-model-Request-cfg-identifier'>        identifier:'uuid',
+</span><span id='NijiLibrary-model-Request-cfg-idProperty'>        idProperty : 'id',
+</span><span id='NijiLibrary-model-Request-cfg-fields'>        fields:[
+</span>            {
+                name: 'request',
+                type: 'string'
+            },{
+                name: 'answer',
+                type: 'string'
+            },{
+                name: 'nbRequestBeforeRefresh',
+                type: 'integer'
+            }
+        ]
+    }
+});</pre>
+</body>
+</html>

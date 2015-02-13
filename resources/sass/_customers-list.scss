@@ -1,0 +1,93 @@
+/**
+ * @author Quentin Decre <quentin.decre@niji.fr>
+ * @date: 15/10/13
+ *
+ * Description
+ */
+
+.customer-list-list {
+  .x-list-item.x-list-footer-wrap.x-list-item-tpl{
+    margin-top:10px;
+  }
+  .x-list-item {
+    &.x-item-pressed {
+      &.x-list-item-tpl {
+        background-color: $lightGreen;
+      }
+    }
+    &.x-item-selected {
+      &.x-list-item-tpl {
+        background-color: white;
+      }
+    }
+  }
+
+}
+
+
+.customer-list {
+  .x-list-item {
+    width: 86%;
+    .name {
+      font-weight: bold;
+      padding-bottom: 3px;
+    }
+    .shortname {
+      font-size: 11pt;
+    }
+    .city {
+      font-size: 11pt;
+      color: $grey3;
+    }
+  }
+  .x-list-header .x-innerhtml {
+    font-size: 1.2em;
+    font-weight: normal;
+    line-height: 26px;
+  }
+  .x-indexbar > div {
+    font-size: 0.8em;
+    padding-bottom: 6px;
+    color: $darkGreen;
+  }
+
+}
+
+.customer-list, .customer-list-list {
+  .x-field-search {
+    padding: 8px 5px;
+    background-color: $grey6;
+  }
+
+  .x-field-search, .x-field-search .x-field-input {
+    @include border-radius(0px);
+
+    .x-input-search, .x-field-input {
+      width: 96%;
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-bottom: -11px;
+      height: 30px;
+      /* padding-bottom: 21px; */
+      text-align: center;
+      border-color: white;
+    }
+    .x-input-search {
+      @include border-radius(0px);
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.6))), url('data:image/png;base64,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');
+      -webkit-background-size: .83em .83em, .83em .83em;
+      background-repeat: no-repeat;
+      background-position: 3em 50%;
+    }
+
+    &.x-field-clearable {
+      .x-input-search {
+        background-image: none;
+      }
+    }
+    .x-input-el{
+        min-height: 0px;
+        padding: 0px;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+// pre imports
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+// sencha touch base theme
+@import 'sencha-touch/cupertino';
+@import 'sencha-touch/cupertino/all';
+
+// style imports
+@import 'common';
+@import 'navigation';
+@import 'table-pivot';
+@import 'login';
+@import 'home-menu';
+@import 'info';
+@import 'guide';
+@import 'document';
+@import 'dashboard';
+@import 'kpiDetail';
+@import 'customers-list';
+@import 'customer';
+@import 'prompt';
+@import 'sale-document-list';
+@import 'data-user';
+@import 'sales-doc';
+@import 'customers-evo-list';
+@import 'home-menu-minified';
+@import 'accueil';
+@import 'kpi';
+@import 'kpi_favorite';
+
+@include icon('array', 'n');
+@include icon('chart', 'Y');
+@include icon('home', 'H');

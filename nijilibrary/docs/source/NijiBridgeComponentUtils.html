@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='NijiLibrary-controller-NijiBridgeComponentUtils'>/**
+</span> * @author Pierre Despagne &lt;pierre.despagne@niji.fr&gt;
+ * @docauthor Pierre Despagne &lt;pierre.despagne@niji.fr&gt;
+ * @class NijiLibrary.controller.NijiBridgeComponentUtils
+ * This class contains the methods required for the Bridge component
+ * 
+ * NijiBridgeComponentUtils
+ */
+Ext.define(&quot;NijiLibrary.controller.NijiBridgeComponentUtils&quot;, {
+    singleton: true,
+    requires: ['NijiLibrary.store.RequestLocalStore'],
+
+<span id='NijiLibrary-controller-NijiBridgeComponentUtils-method-constructor'>	/**
+</span>	*	Putting the mock.js as script in the current document
+	*/
+    constructor: function() {
+        var script = document.createElement(&quot;script&quot;);
+        script.type = &quot;text/javascript&quot;;
+        script.src = 'NijiLibrary/controller/connection/mock.js';
+        document.body.appendChild(script);
+    },
+
+<span id='NijiLibrary-controller-NijiBridgeComponentUtils-method-removeTimestamp'>    /**
+</span>     * Remove the timestamp of the request
+     * @param request
+     * @returns {String}
+     */
+    removeTimestamp: function(request) {
+        var currentRequest = null;
+        var debutDC = request.indexOf(&quot;_dc&quot;);
+        var finDC = request.indexOf(&quot;&amp;&quot;);
+        if (finDC == -1) {
+            currentRequest = request.substring(0, debutDC - 1);
+        } else {
+            var requestWithoutDCLeft = request.substr(0, debutDC);
+            var requestWithoutDCRight = request.substring(finDC + 1, request.length);
+            currentRequest = requestWithoutDCLeft + requestWithoutDCRight;
+        }
+        return currentRequest;
+    },
+
+<span id='NijiLibrary-controller-NijiBridgeComponentUtils-method-getLocalStore'>    /**
+</span>     * Getting the NijiLibrary.store.RequestLocalStore
+     * @returns {Object}
+     */
+    getLocalStore: function() {
+        var myLocalStore = Ext.getStore('RequestLocalStore');
+        if (myLocalStore == null) {
+            myLocalStore = Ext.create('NijiLibrary.store.RequestLocalStore');
+        }
+        myLocalStore.load();
+        return myLocalStore;
+    }
+
+});</pre>
+</body>
+</html>

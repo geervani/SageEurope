@@ -1,0 +1,64 @@
+/**
+ * @author Said Ouarrich <said.ouarrich@sage.com>
+ * Description
+ */
+
+.customers-evo-list {
+	
+	.x-field {
+		min-height: 2.5em;
+		background: #A7A7A7;
+		padding-right: 404px;
+	}
+	.x-toolbar .x-field .x-component-outer {
+		padding: 0.2em .6em 0;
+	}
+	.x-form-label {
+		padding: 6px 0.6em 0.6em 78px;
+	}
+	.x-field-input {
+		border: 1px solid #cccccc;
+		border-radius: 0px;
+		width: 170px;
+		height: 30px;
+	}
+	.x-form-label-nowrap .x-form-label {
+		margin-right: 7px;
+		margin-left: 220px;
+		overflow: visible;
+	}
+
+	.x-list .x-list-header {
+		background-color: #D3D3D3;
+		border: 0px;
+		padding: 0.2em 1em;
+	}
+
+	.x-list .x-list-item:nth-child(2n+1) {
+		color: black;
+		font-weight: 400;
+		border-top: 1px solid transparent;
+		background: aliceblue;
+	}
+
+	.contentTitle{
+		.name{
+			font-size: 20px;
+      		padding-bottom: 7px;
+		}
+		.shortname{
+			font-size: 11pt;
+		}
+	}
+	.city{
+		font-size: 20px;
+      	float: right;
+		margin-top: -45px;
+	}
+	.x-toolbar.x-docked-top {
+		background: #A7A7A7;
+		border-radius: 0px / 0px;
+		padding-top: 0px;
+		height: 40px;
+	}
+}

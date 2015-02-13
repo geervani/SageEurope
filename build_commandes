@@ -1,0 +1,5 @@
+#Cordova Packager Intregation
+sencha cordova init com.sage.SCV "Sage Customer View"
+
+#Build native app
+sencha app build native

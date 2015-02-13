@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='NijiLibrary-controller-AjaxPatch'>/**
+</span> * @class NijiLibrary.controller.AjaxPatch
+ * This class contains the methods required for the Bridge component
+ * 
+ * AjaxPatch
+ */
+Ext.define('NijiLibrary.controller.AjaxPatch', {
+     override: 'Ext.data.proxy.Ajax',
+     
+<span id='NijiLibrary-controller-AjaxPatch-method-doRequest'>     /* Change AjaxProxy doRequest to add jsonData in request */
+</span>    doRequest: function(operation, callback, scope) {
+        var me = this,
+            writer  = me.getWriter(),
+            request = me.buildRequest(operation);
+        request.setConfig({
+            headers  : me.getHeaders(),
+            timeout  : me.getTimeout(),
+            method   : me.getMethod(request),
+            callback : me.createRequestCallback(request, operation, callback, scope),
+            scope    : me,
+            proxy    : me,
+            loadingMessage: me.config.loadingMessage,
+            nbRequestBeforeRefresh: me.config.nbRequestBeforeRefresh
+        });
+        if(me.config.jsonData) {
+            request.setConfig({
+                jsonData  : me.config.jsonData
+            });
+        }
+
+        if (operation.getWithCredentials() || me.getWithCredentials()) {
+            request.setWithCredentials(true);
+            request.setUsername(me.getUsername());
+            request.setPassword(me.getPassword());
+        }
+
+        // We now always have the writer prepare the request
+        request = writer.write(request);
+        var conf = request.getCurrentConfig();
+        conf.loadingMessage = me.config.loadingMessage;
+        conf.nbRequestBeforeRefresh = me.config.nbRequestBeforeRefresh;
+        Ext.Ajax.request(conf);
+
+        return request;
+    }
+ });
+</pre>
+</body>
+</html>

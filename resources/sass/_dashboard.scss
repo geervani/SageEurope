@@ -1,0 +1,164 @@
+/**
+ * @author Mickael guesdon
+ * @date: 11/10/13
+ *
+ * Contains dashboard style
+ */
+
+.shortcut.preview {
+  font-family: "Foco Light", Foco, "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
+  float: left;
+  overflow: hidden;
+  width: 362px;
+  min-height: 85px;
+  margin: 0 0 20px 20px;
+  box-shadow: 0px 3px 1px #dedede;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background: white;
+ 
+  .titleCompareDiv {
+    // position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 25pt;
+  }
+}
+
+.preview-label-categorie {
+  font-family: "Foco Light", Foco, "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
+  margin: 10px 0 10px 0;
+  line-height: 1.5em;
+  font-size: 22pt;
+  margin-left: 19px;
+  color: #717275;
+  clear: both;
+
+  .x-inner {
+    background: white;
+  }
+  .titleCompareDiv {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    font-size: 25pt;
+  }
+}
+
+.kpi-error-msg {
+  font-size: 16pt;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.dashboard .x-scroll-view {
+  //background-color: #F5F5F5;
+  background-color : rgb(229,229,229);
+}
+
+.dashboard .x-scroll-container > .x-inner {
+  visibility: hidden;
+}
+  .dashboard .x-toolbar.x-docked-top {
+     background-color: #f8f9f9;
+     border-bottom: solid 1px grey;
+     height: 47px;
+     border-top: solid 1px #D8D8D8;
+
+  }
+.scrollspy {
+  
+    .scrollspy-dashboard{
+        border-bottom: solid 3px #FFFFFF;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 13px;
+        height: 27.5px;
+
+        .x-button-label{
+            color: #717275;
+          }
+        &.x-button-pressing .x-button-label {
+          color: #32BA56;
+        }
+    }
+
+    .scrollspy-dashboard-active{
+        border-bottom: solid 3px #32BA56;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 13px;
+        height: 27.5px;
+
+        .x-button-label{
+            color: #717275;
+          }
+        &.x-button-pressing .x-button-label {
+          color: #32BA56;
+        }
+    }
+
+}
+
+.notEnoughData2 {
+  margin-top: 3px; 
+  margin-right: -9px; 
+  text-align: right;
+  color: #4E4B4B;
+  font-size: 17px;
+}  
+
+.notEnoughData {
+    padding-top: 34px;
+    text-align: right;
+    color: #4E4B4B;
+    font-size: 17px;
+    padding-left: 189px;
+  } 
+
+.dataviz {
+  width: 100%;
+
+  .dataviz_container {
+    &.dataviz-preview, &.k-gauge {
+      width: 100%;
+      height: 280px;
+      padding-top: 80px;
+
+      div {
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+  }
+
+
+  .dataviz_container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .figure {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    padding: 5px;
+
+    .figure-title {
+      font-size: 16pt;
+      width: 320px;
+      height: 25px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+    }
+
+    .figure-value {
+      padding-right: 5px;
+      text-align: right;
+      color: #6B6B6B;
+      display: block;
+    }
+  }
+}

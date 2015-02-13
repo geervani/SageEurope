@@ -1,0 +1,9 @@
+[submodule "resources/strings/orig"]
+	path = resources/strings/orig
+	url = git@bitbucket.org:sagefr/sagecustomerviewresources.git
+[submodule "resources/vendor/hermesjs"]
+	path = resources/vendor/hermesjs
+	url = git@bitbucket.org:sagefr/hermessdkjavascript.git
+[submodule "resources/vendor/dataviz"]
+	path = resources/vendor/dataviz
+	url = git@bitbucket.org:sagefr/hermesdataviz.git

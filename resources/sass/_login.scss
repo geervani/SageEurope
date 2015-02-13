@@ -1,0 +1,93 @@
+/**
+ * @author Quentin Decre <quentin.decre@niji.fr>
+ * @date: 03/10/13
+ *
+ * CSS for login page
+ */
+.login-container {
+  background-image: url("../img/login-header.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 829px 305px;
+  padding-top: 166px;
+
+  .x-button-primary {
+    width: 260px;
+    margin-left: 170px;
+    &:first-child {
+      margin-left: 160px;
+    }
+    &:last-child {
+      position: absolute;
+      right: 160px;
+    }
+
+    .x-button-label {
+      font-size: 16pt;
+    }
+  }
+
+  .introduction-label {
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    font-size: 16pt;
+    color: $grey1;
+    line-height: 24pt;
+  }
+
+  .login-bottom-container {
+    margin-top: 85px;
+    margin-left: 160px;
+    margin-right: 160px;
+  }
+
+  .x-button-secondary {
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .video-container {
+    margin-right: 30px;
+
+    .scrennshot{
+      margin-left: -53px;
+    }
+  }
+
+  .secondary-teaser {
+    font-size: 16pt;
+    text-align: center;
+    color: $grey1;
+    line-height: 24pt;
+  }
+
+  .more-informations {
+    color: $grey1;
+    margin-top: 25px;
+  }
+}
+
+.has-token .login-container {
+
+  .x-button-primary {
+    &:first-child {
+      position: absolute;
+      left: 50%;
+      right: auto;
+      margin-left: -130px;
+      margin-top: 80px;
+      &:after {
+        font-size: 16pt;
+        text-align: center;
+        margin-left: 43px;
+      }
+    }
+    &:last-child {
+      display: none !important;
+    }
+  }
+  .login-bottom-container {
+    display: none !important;
+  }
+}

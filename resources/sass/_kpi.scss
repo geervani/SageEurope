@@ -1,0 +1,136 @@
+.testpage {
+	background-color: #E4E4E4;
+
+	.kpi.kpi--preview {
+		float: left;
+		margin-left: 20px;
+		margin-top: 20px;
+	}
+}
+
+.kpi {
+	&.kpi--preview {
+		position: relative;
+		display: block;
+		width: 362px;
+		height: 270px;
+		background-color: #fff;
+	}
+
+	.kpi-figure {
+		position: relative;
+
+		.figure {
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include background-image(linear-gradient(
+				rgba(255, 255, 255, 1),
+				rgba(255, 255, 255, 0)
+			));
+			width: 100%;
+		}
+
+		> .dataviz_container {
+			padding: 20px 20px 0;
+		}
+
+		.figure-value {
+			font-size: 33px;
+			line-height: 2em;
+			padding: 0 20px;
+		}
+	}
+
+	.kpi-title {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 10px 20px;
+		width: 100%;
+		font-size: 21px;
+		line-height: 1.3em;
+		@include background-image(linear-gradient(
+			rgba(255, 255, 255, 0),
+			rgba(255, 255, 255, 0.5) 33%,
+			rgba(255, 255, 255, 1)
+		));
+	}
+
+	.kpi-indicator {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 50%;
+		margin-left: -20px;
+		margin-right: -20px;
+
+		transition: all 300ms;
+		-webkit-transition: all 300ms;
+		transition-timing-function: ease-out;
+		-webkit-transition-timing-function: ease-out;
+
+		&.kpi-indicator--hidden {
+			opacity: 0;
+			transform: scale(0, 0);
+			-webkit-transform: scale(0, 0);
+			width: 0;
+			height: 0;
+			display: none;
+			font-size: 0;
+		}
+	}
+
+	.notEnoughData {
+		text-align: center;
+		padding: 0;
+		margin: 0;
+		height: 206px;
+		line-height: 206px;
+		display: block;
+		width: 100%;
+	}
+}
+
+/**
+ * figure_preview
+ */
+.kpi.kpi--preview.figure_preview {
+	height: 182px;
+
+	.kpi-figure {
+		.figure-value {
+			color: #4E4B4B;
+			font-size: 17px;
+			text-align: center;
+			line-height: 138px; /* 182 - 44(title) */
+		}
+
+		.titleCompareDiv {
+			font-size: 33px;
+		}
+	}
+}
+
+.kpi.kpi--preview.preview_number {
+	height: 32px; // => 394 / (3 / 2)
+	.kpi-title {
+		font-size: 16pt;
+		padding: 5px 5px;
+		width: 320px;
+		height: 34px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		display: block;
+	}
+	.kpi-figure {
+		> .dataviz_container {
+			padding: 20px 20px 0;
+			color: #4E4B4B;
+			font-size: 32px;
+			text-align: right;
+			line-height: 2em;
+		}
+	}
+}

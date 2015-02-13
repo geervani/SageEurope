@@ -1,0 +1,291 @@
+/**
+ * @author Quentin Decre <quentin.decre@niji.fr>
+ * @date: 03/10/13
+ *
+ * Description
+ */
+
+
+.dataviz_container.dataviz-detail {
+  width: 99%;
+  height: 600px;
+  padding: 8px;
+  padding-bottom: 30px;
+  // margin-left: -232px;
+
+  div:not(.k-tooltip ) {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+.kpi-summary {
+  color: #838486;
+  background-color: #fff;
+  // box-shadow: 0 0 3px black;
+  width: 218px;
+  margin-left: 18px;
+  // height: 526,
+
+  h2, h3 {
+    font-size: 18px;
+    font-weight: normal;
+  }
+  
+  h3 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  dl {}
+
+  h2.kpi-summary-recap {
+    background-color: #F5F5F5;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .kpi-summary-section {
+    border-top: 1px solid #CDCDCD;
+    padding: 18px 20px;
+    overflow: hidden;
+
+    dd {
+      margin-left: 10px;
+    }
+
+    dt {
+      margin: 5px 0px;
+    }
+
+  }
+
+  .kpi-summary-periods {
+    dt, dd {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    dt {
+      float: left;
+      width: 34px;
+      margin: 0px 0px;
+    }
+
+    dd {
+      float: left;
+      font-size: 24px;
+      color: #007F64;
+    }
+  }
+}
+.containerPrompt {
+
+   background-color: #007F64;
+   height: 68;
+  .Valider {
+
+    background-color: #007F64;
+    float: right;
+    position: relative;
+    left: 120px;
+    bottom: 1px;
+    width: 78px;
+
+
+    
+  }
+  
+  .Annuler {
+    
+    background-color: #007F64;
+    float: left;
+    position: relative;
+    bottom: -33px;
+  }
+}
+.textfieldKPI {
+  background-color: #dbdbe0;
+  .x-input-el {
+      background: none !important;
+    }
+
+}
+
+
+
+.kpi-detail-container {
+
+  height: 35px;
+
+  .kpi-detail-favoriButton, .kpi-detail-NonfavoriButton {
+    background-repeat: no-repeat;
+    height: 40px;
+    margin-top: -9px;
+
+  }
+
+
+  .kpi-detail-favoriButton {
+    background: url("../img/NonFavori.png");
+    width: 43px;
+    margin-right: -39px;
+  }
+  .kpi-detail-NonfavoriButton {
+      background: url("../img/favori2.png");
+      width: 40px;
+      }
+  }
+.kpi-container {
+  height: 76px;
+  width: 100%;
+  background: #007f64;
+  .kpi-detail-Edit-save {
+    background: url("../img/save.png");
+    background-repeat: no-repeat;
+    background-color: #007f64;
+    font-weight: 400;
+    margin-left: 2%;
+    background-position-x: 50%;
+    background-position-y: 1px;
+    margin-top: 14px;
+    height: 86px;
+  }
+
+  .kpi-detail-Edit-reset {
+    background: url("../img/reset.png");
+    background-repeat: no-repeat;
+    background-color: #007f64;
+    font-weight: 400;
+    margin-left: 4%;
+    background-position-x: 50%;
+    background-position-y: 1px;
+    margin-top: 14px;
+    height: 86px;
+  }
+  .kpi-detail-Edit-periods {
+    background: url("../img/periods.png");
+    background-repeat: no-repeat;
+    background-color: #007f64;
+    font-weight: 400;
+    margin-left: 2%;
+    background-position: 50% 1px;
+    margin-top: 14px;
+    height: 86px;
+  }
+  .kpi-detail-Edit-removeShortcut {
+    background: url("../img/delete_kpi.png");
+    background-repeat: no-repeat;
+    background-color: #007f64;
+    font-weight: 400;
+    margin-left: 2%;
+    background-position-x: 50%;
+    background-position-y: -1px;
+    margin-top: 14px;
+    height: 86px;
+  }
+  .kpi-detail-Edit-restore {
+    background: url("../img/restore.png");
+    background-repeat: no-repeat;
+    background-color: #007f64;
+    font-weight: 400;
+    margin-left: 2%;
+    background-position-x: 50%;
+    background-position-y: 6px;
+    margin-top: 14px;
+    height: 86px;
+  }
+
+}
+
+.PanelPrompt-style {
+    .kpi-detail-Edit-AddPeriod {
+    background: url("../img/add_period.png");
+    background-repeat: no-repeat;
+    background-position-x: 4%;
+    background-position-y: 13px;
+    width: 237px;
+   
+  }
+  .kpi-detail-Edit-RemovePeriod {
+    background: url("../img/deletePeriod.png");
+    background-repeat: no-repeat;
+    background-position-x: 4%;
+    background-position-y: 13px;
+    float: right;
+    width: 45px;
+    position: relative;
+    left: 472px;
+    bottom: 88px;
+  
+  }
+   .kpi-detail-Edit-AddPeriod, .kpi-detail-Edit-RemovePeriod {
+    
+    background-color: white;
+    font-weight: 400;
+    margin-left: 2%;
+    margin-top: 14px;
+    height: 67px; 
+    
+    .x-button-label{
+      color: black;
+      text-align: center;
+    }   
+
+  }
+
+    .x-input-el {
+      padding: .7em .4em .4em .14em;
+      min-height: 2.5em;
+      border-width: 0;
+      /* -webkit-appearance: none; */
+      background: url("../img/ico-down.png") no-repeat;
+      background-position-x: 99%;
+      background-position-y: 55%;
+      background-size: 21px;
+    }
+}
+
+.kpi-detail-carousel {
+  width: 100%;
+  height: 100%;
+  .notEnoughData {
+    padding: 295px;
+    text-align: center;
+    color: #4E4B4B;
+    font-size: 19px;
+}
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .kpi-error-msg{
+    margin-left: 10px;
+  }
+  
+  .x-carousel-item{
+    height: 550px;
+  }
+
+  .k-tooltip{
+    padding-top: 4px;
+  	padding-bottom: 4px;
+  	padding-left: 8px;
+  	padding-right: 8px;
+  }
+
+}
+.dateinterval-selector {
+  background-color: #007f64;
+  float: left;
+  position: relative;
+
+}
+.dateinterval-container {
+  background-color: #007f64;
+  width:80%
+
+}

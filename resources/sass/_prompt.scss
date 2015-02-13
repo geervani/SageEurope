@@ -1,0 +1,199 @@
+/**
+ * @author Quentin Decre <quentin.decre@niji.fr>
+ * @date: 05/11/13
+ *
+ * Description
+ */
+.x-picker-slot{
+  -webkit-box-flex: 1 !important;
+  text-align: center;
+  &.x-first{
+    text-align: right;
+  }
+  &.x-last{
+    text-align: left;
+  }
+}
+
+.prompt, .prompt-commerciaux, .prompt-departements, .prompt-docs {
+  // width: 179px;
+  height: 152px;
+  margin: 0 5px;
+  padding: 0px;
+
+  border: none;
+  background-color: $darkGreen;
+  background-repeat: no-repeat;
+  background-position: 50% 10px;
+  background-size: 36px 36px;
+  margin-left: 2%;
+
+  &, .x-form-field {
+    color: white;
+    font-size: 16px;
+  }
+}
+.prompt-commerciaux {
+  background-image: url(../img/commerciaux.png);
+
+
+}
+.prompt-departements {
+  background-image: url(../img/departements.png);
+
+}
+.prompt-docs {
+  background-image: url(../img/docs.png);
+
+}
+
+.prompt-label {
+  position: relative;
+
+  margin-top: 11px;
+  font-size: 15px;
+  min-height: 13px;
+  min-width: 67px;
+  padding: 0px 1px;
+
+  white-space: normal;
+  text-overflow: clip;
+  // margin-left: 25px;
+
+  border-radius: 0px;
+  background-color: #007f64;
+
+  &:active{
+    background-color: $grey5;
+    &, .x-form-field {
+      color: $grey1;
+    }
+  }
+}
+
+.offline {
+  .period-container, .x-button.prompt-button {
+    pointer-events: none;
+
+    opacity: 0.5;
+
+    &:after {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+
+      content: "";
+
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.x-button.prompt-docs-button {
+  @extend .prompt-docs;
+
+  .x-component-outer {
+    display: none;
+  }
+  .x-form-label, .x-button-label {
+    @extend .prompt-label;
+    top: -25px;
+  }
+}
+.x-button.prompt-departements-button {
+  @extend .prompt-departements;
+
+  .x-component-outer {
+    display: none;
+  }
+  .x-form-label, .x-button-label {
+    @extend .prompt-label;
+    top: -25px;
+  }
+}
+.x-button.prompt-commerciaux-button {
+  @extend .prompt-commerciaux;
+
+  .x-component-outer {
+    display: none;
+  }
+  .x-form-label, .x-button-label {
+    @extend .prompt-label;
+    top: -25px;
+  }
+}
+
+.prompt-panel.single .select-bar {
+  display: none;
+}
+
+.prompt-panel .select-bar .x-button-label {
+  color: #007f64;
+}
+
+
+
+// .kpi-container {
+//   margin-top: 3px;
+//   margin-left: -1px;
+
+//   .x-form-fieldset .x-form-fieldset-inner {
+//     border: none;
+//     background: transparent;
+//   }
+
+//   .period-container {
+//     @extend .prompt;
+//     background-image: none;
+//     position: relative;
+
+//     width: 270px;
+//     height: 110px;
+
+//     .x-form-label{
+//       padding: 0px;
+//       margin-top: 16px;
+//       margin-left: 6px;
+//       margin-right: 6px;
+//     }
+
+//     .x-form-fieldset .x-field:before {
+//       border-bottom: none;
+//     }
+
+//     .x-form-fieldset-inner {
+//       border: none;
+//     }
+
+//     .x-field-input {
+//       @extend .prompt-label;
+//       border: none;
+//     }
+
+//     .datepickerfield {
+//       width: 125px;
+//       padding-top: 4px;
+
+//       &:before{
+//         border: none;
+//       }
+
+//       .x-field-input{
+//         padding: 0px !important;
+//         min-height: 40px !important;
+//         width: 98px;
+//         height: 42px;
+//       }
+
+//       .x-form-field{
+//         padding: 2px 5px;
+//       }
+//       &.end {
+//         margin-left: 8px;
+//       }
+//     }
+//   }
+
+// }

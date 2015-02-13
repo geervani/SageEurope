@@ -1,0 +1,70 @@
+[4mInitializing[24m
+Command-line options: [36m--verbose[39m
+
+Reading "Gruntfile.js" Gruntfile...[32mOK[39m
+
+[1mRegistering Gruntfile tasks.[22m
+
+[1mRegistering "grunt-contrib-clean" local Npm module tasks.[22m
+Reading /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-contrib-clean/package.json...[32mOK[39m
+Parsing /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-contrib-clean/package.json...[32mOK[39m
+Loading "clean.js" tasks...[32mOK[39m
++ [36mclean[39m
+
+[1mRegistering "grunt-contrib-concat" local Npm module tasks.[22m
+Reading /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-contrib-concat/package.json...[32mOK[39m
+Parsing /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-contrib-concat/package.json...[32mOK[39m
+Loading "concat.js" tasks...[32mOK[39m
++ [36mconcat[39m
+
+[1mRegistering "grunt-contrib-jshint" local Npm module tasks.[22m
+Reading /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-contrib-jshint/package.json...[32mOK[39m
+Parsing /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-contrib-jshint/package.json...[32mOK[39m
+Loading "jshint.js" tasks...[32mOK[39m
++ [36mjshint[39m
+
+[1mRegistering "grunt-deploy" local Npm module tasks.[22m
+Reading /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-deploy/package.json...[32mOK[39m
+Parsing /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-deploy/package.json...[32mOK[39m
+Loading "deploy.js" tasks...[32mOK[39m
++ [36mdeploy[39m
+
+[1mRegistering "grunt-multiresize" local Npm module tasks.[22m
+Reading /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-multiresize/package.json...[32mOK[39m
+Parsing /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-multiresize/package.json...[32mOK[39m
+Loading "multiresize.js" tasks...[32mOK[39m
++ [36mmultiresize[39m
+
+[1mRegistering "grunt-plato" local Npm module tasks.[22m
+Reading /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-plato/package.json...[32mOK[39m
+Parsing /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-plato/package.json...[32mOK[39m
+Loading "plato.js" tasks...[32mOK[39m
++ [36mplato[39m
+
+[1mRegistering "grunt-sencha-build" local Npm module tasks.[22m
+Reading /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-sencha-build/package.json...[32mOK[39m
+Parsing /Users/sonatasoftware/Documents/SageEurope/Source/IOS/sagefr-hermes-hen-scv-ios-5a2d4c81b5d9/node_modules/grunt-sencha-build/package.json...[32mOK[39m
+Loading "sencha_build.js" tasks...[32mOK[39m
++ [36msencha[39m, [36msencha_app_build[39m, [36msencha_compile[39m, [36msencha_package_build[39m, [36msencha_which[39m
+Reading package.json...[32mOK[39m
+Parsing package.json...[32mOK[39m
+Reading .jshintrc...[32mOK[39m
+Parsing .jshintrc...[32mOK[39m
+Initializing config...[32mOK[39m
+Loading "Gruntfile.js" tasks...[32mOK[39m
++ [36mci-checks[39m, [36mdefault[39m
+
+Running tasks: [36mdeploy:dev[39m
+
+[4mRunning "deploy:dev" (deploy) task[24m
+Verifying property [36mdeploy.dev[39m exists in config...[31mERROR[39m
+[31m>> [39mUnable to process task.
+[33mWarning: Required config property "deploy.dev" missing. Use --force to continue.[39m
+
+[31mAborted due to warnings.[39m
+
+
+Execution Time (2015-02-13 07:35:03 UTC)
+loading tasks  6ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 55%
+deploy:dev     5ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 45%
+Total 11ms

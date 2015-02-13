@@ -1,0 +1,11 @@
+/**
+ * @author Quentin Decre <quentin.decre@niji.fr>
+ * @date: 03/10/13
+ *
+ * Contains fonts
+ */
+
+@font-face {
+  font-family: "Foco";
+  src: url('../fonts/foco/Foco.ttf') format('truetype'), url('../fonts/foco/FocoBold.ttf') format('truetype'), url('../fonts/foco/FocoLighter.ttf') format('truetype');
+}

@@ -1,0 +1,128 @@
+{
+    "$title": {
+        "fr": "Hermes SDK Sample",
+        "en": "Hermes SDK Sample"
+    },
+    "$key": "c0f6272b-3da0-4f98-b434-54c18fff8559",
+    "$version": "0.0.0",
+    "$resources": {
+    },
+    "$options": {
+        "$": {
+            "i18n": {
+                "$title": {
+                    "fr": "Chaines i18n",
+                    "en": "i18n Strings"
+                },
+                "$type": "application/x-object",
+                "$rights": {
+                    "tenant": 2
+                }
+            },
+            "dashboardsShortcuts": {
+                "$title": {
+                    "fr": "KPI Shorcuts",
+                    "en": "KPI Shorcuts"
+                },
+                "$type": "application/x-string",
+                "$rights": {
+                    "tenant": 2,
+                    "user": 2
+                }
+            },
+            "modules": {
+                  "invoiceList": {
+                  "$title": {
+                    "fr": "Sales Document Customer",
+                    "en": "Sales Document Customer"
+                  },
+                  "resource": {
+                    "$title": {
+                      "fr": "nom de la resource",
+                      "en": "resource name"
+                    },
+                    "$type": "application/x-string",
+                    "$rights": {
+                      "tenant": 2
+                    }
+                  },
+                  "$type": "application/x-object",
+                  "$rights": {
+                    "tenant": 2
+                  }
+                },
+            },
+        },
+        "invoiceList": {
+            "resource": "salesDocument",
+            "moduleDisplayName": "{{$i18n 'module.invoice.title'}}",
+            "search": "number like '%{{searchString}}%'",
+            "preview": {
+              "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>",
+              "query": "salesDocument?where=type eq 'invoice'&orderBy=date desc&select=*,customer.name,customer.shortName",
+              "maxResult": 5
+            },
+            "detail": {
+              "template": "<div class='item {{type.$key}}'><div class='contentTile'><p class='infoTitle relief'>{{$i18n 'module.customer'}}<span class='infoContent relief'>{{#if _customer.shortName}} {{_customer.name}} {{else}} - {{/if}}</span></p><p class='infoTitle relief'>{{$i18n 'module.totalwithoutvat'}}<span class='infoContent relief'>{{#if totalGrossAmountwithoutVAT}} {{$number totalGrossAmountwithoutVAT}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithoutvatnet'}}<span class='infoContent'>{{#if totalAmountAfterDiscount}} {{$number totalAmountAfterDiscount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totaltax'}}<span class='infoContent'>{{#if totalTaxAmount}} {{$number totalTaxAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithvat'}}<span class='infoContent'>{{#if totalGrossAmount}} {{$number totalGrossAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.discount'}}<span class='infoContent'>{{#if settlementDiscountAmountDocument}} {{$number settlementDiscountAmountDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.termamount'}}<span class='infoContent'>{{#if amountTermDocument}} {{amountTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.shippingcost'}}<span class='infoContent'>{{#if expenseChargedAmount}} {{$number expenseChargedAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.dueterm'}}<span class='infoContent'>{{#if dueDateTermDocument}} {{$date dueDateTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.pricinglist'}}<span class='infoContent'>{{#if customerGroupReference1}} {{customerGroupReference1}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingauthority'}}<span class='infoContent'>{{#if payingAuthorityFinancialAccount}} {{payingAuthorityFinancialAccount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.modelregulation'}}<span class='infoContent'>{{#if originalDeliveryTypeTermDocument}} {{originalDeliveryTypeTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingmethod'}}<span class='infoContent'>{{#if PaymentMethod}} {{PaymentMethod}} {{else}} - {{/if}}</span></p></div></div>",
+              //template ios
+              "template_ios":"<div class='sales-doc'> <hgroup class='sales-doc-header'><span class='date'>{date:date('d-m-Y')}</span><p class='total'>Total HT Net {totalAmountAfterDiscount}</p></hgroup><dl class='sales-doc-infos'><dt>Client</dt><dd>{_customer.shortName}</dd><dt>Total HT</dt><dd>{totalGrossAmountwithoutVAT}</dd><dt>Total HT Net</dt><dd>{totalAmountAfterDiscount}</dd><dt>Total taxes</dt><dd>{totalTaxAmount}</dd><dt>Total TTC</dt><dd>{totalGrossAmount}</dd><dt>Escompte</dt><dd>{settlementDiscountAmountDocument}</dd><dt>Montant</dt><dd>{amountTermDocument}</dd><dt>Coût expédition</dt><dd>{expenseChargedAmount}</dd><dt>Échéance</dt><dd>{dueDateTermDocument}</dd><dt>Catégorie tarifaire</dt><dd>{customerGroupReference1}</dd><dt>Payeur</dt><dd>{payingAuthorityFinancialAccount}</dd><dt>Modèle de règlement</dt><dd>{originalDeliveryTypeTermDocument}</dd><dt>Mode de règlement</dt><dd>{paymentMethod}</dd></dl></div>",
+              "template_Client_ios":"<div class='sales-doc-customer'><span class='name'>{_customer.name}</span><span class='short-name'>{_customer.shortName}</span></div>",
+              //
+              "titleTemplate": "{{number}}<br/><span>{{originalType}}</span>",
+              "documentLineQuery": "salesDocumentLine?where=salesDocumentReference eq '{{$key}}'&select=*,commodity.commodityDescription",
+              "documentLineTemplate": "<div style='-ms-grid-column:1;-ms-grid-row:{{rownum}}' class='tableLine'>{{_commodity.commodityDescription}}</div> <div style='-ms-grid-column:2;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{amount.lineQuantity}}</div> <div style='-ms-grid-column:3;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{amount.unitPrice 'price'}} €</div> <div style='-ms-grid-column:4;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{ amount.discountPercent 'percent'}} %</div><div style='-ms-grid-column:5;-ms-grid-row:{{rownum}};text-align:right;' class='tableLineLast'> {{ amount.lineAmountWithoutVATAfterDiscount 'price'}} €</div>",
+              //template line
+              "documentLineTemplate_ios":"<table class='sales-doc-lines'><thead><tr><th>Désignation</th><th>Quanité</th><th>Prix Unitaire HT</th><th>Remise</th><th>Total</th></tr></thead><tbody><tpl for='.'><tr><td>{_commodity.commodityDescription}</td><td>{amount.lineQuantity}</td><td>{amount.unitPrice} €</td><td>{amount.discountPercent}</td><td>{amount.lineAmountWithoutVATAfterDiscount} €</td></tr></tpl></tbody></table>",
+              //
+              "documentHeaderDetailsTemplate": "<div class='invoiceRelief left'>{{originalType}} {{number}}</div><div class='bold right'>{{$i18n 'module.from'}} {{$date date}}</div></div><div class='clear'></div><div class='left linkTo customerDocDetail'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{_customer.name}}</p><p class='textMediumcolorSecondaryspan6'>{{_customer.shortName}}</p></div></div></div><div id='amounts' class='right'><div class='left decalright'>{{$i18n 'module.totalwithoutvatnet'}}</div><div class='right'>{{$number totalAmountAfterDiscount}}</div>",
+              "share": "<h4>{{$i18n 'module.invoice.documentname'}} {{number}} {{$i18n 'module.from'}} {{$date date}}</h4><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customer'}}</font></td><td style='padding:15px'>{{_customer.name}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customerReference'}}</font></td><td style='padding:15px'>{{_customer.shortName}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.amountwithoutvat'}}<br/></font></td><td style='padding:15px'>{{totalAmountAfterDiscount}}</td></tr></table>"
+            },
+            "navigation": {
+              "semanticzoom": "semanticZoomInvoice"
+            }
+        },
+        "i18n": {
+            "welcome": {
+                "en": "Welcome i18n",
+                "fr": "Bonjour i18n"
+            }
+        },
+        "dashboardsShortcuts": "",
+        "$dashboards": [
+            {
+                "$key": "sampledashboard",
+                "$title": {
+                    "fr": "Ma liste",
+                    "en": "My List"
+                },
+                "$source": {
+                    "$key": "SAMPLELIST"
+                }
+            }
+        ]
+    },
+    "$roles": {
+        "salesManager": {
+            "$title": {
+                "fr": "Directeur commercial",
+                "en": "Sales Manager"
+            },
+            "$options": {}
+        },
+        "salesRep": {
+            "$title": {
+                "fr": "Représentant",
+                "en": "Sales Representant"
+            },
+            "$options": {},
+            "$resources": {
+                "customer": {
+                    "$trigger": "salesrepseeitscustomer"
+                },
+                "salesDocument": {
+                    "$trigger": "salesrepseeitscustomerdocuments"
+                }
+            }
+        }
+    }
+}

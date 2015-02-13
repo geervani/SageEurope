@@ -1,0 +1,2569 @@
+{
+  "$title": {
+    "fr": "Sage Customer View",
+    "en": "Sage Customer View"
+  },
+  "$key": "f22c7f66-ac0c-4de9-b28c-e9a602852534",
+  "$version": "0.6.7",
+  "$resources": {
+    "salesDocumentLine": {},
+    "salesDocument": {},
+    "employee": {},
+    "customer": {},
+    "expense": {}
+  },
+  "$options": {
+    "$": {
+      "backgroundColor": {
+        "$title": {
+          "fr": "Couleur de fond de l'app",
+          "en": "App background color"
+        },
+        "$type": "application/x-color",
+        "$rights": {
+          "tenant": 2
+        }
+      },
+      "i18n": {
+        "$title": {
+          "fr": "Chaines i18n",
+          "en": "i18n Strings"
+        },
+        "$type": "application/x-object",
+        "$rights": {
+          "tenant": 2
+        }
+      }, 
+      "style": {
+        "$title": {
+          "fr": "Style personnalisé",
+          "en": "Custom Style"
+        },
+        "$type": "application/x-string",
+        "$rights": {
+          "tenant": 2
+        }
+      },
+      "config": {
+        "$title": {
+          "fr": "Configuration app",
+          "en": "App configuration"
+        },
+        "formatting": {
+          "$title": {
+            "fr": "Formatage",
+            "en": "Formatting"
+          },
+          "number": {
+            "$title": {
+              "fr": "Nombre",
+              "en": "Number"
+            },
+            "default": {
+              "$title": {
+                "fr": "Defaut",
+                "en": "Default"
+              },
+              "roundPrecision": {
+                "$type": "application/x-number",
+                "$rights": {
+                  "tenant": 2
+                }
+              }
+            },
+            "percent": {
+              "$title": {
+                "fr": "Pourcentage",
+                "en": "Percent"
+              },
+              "roundPrecision": {
+                "$type": "application/x-number",
+                "$rights": {
+                  "tenant": 2
+                }
+              }
+            },
+            "price": {
+              "$title": {
+                "fr": "Prix",
+                "en": "Price"
+              },
+              "roundPrecision": {
+                "$type": "application/x-number",
+                "$rights": {
+                  "tenant": 2
+                }
+              }
+            }
+          }
+        }
+      },
+      "sync": {
+        "$title": {
+          "fr": "Sync Config",
+          "en": "Sync Config"
+        },
+        "$type": "application/x-object",
+        "$rights": {
+          "tenant": 2,
+          "user": 2
+        }
+      },
+      "module": {
+        "customerList": {
+          "$title": {
+            "fr": "Liste des clients",
+            "en": "Customer list"
+          },
+          "resource": {
+            "$title": {
+              "fr": "nom de la resource",
+              "en": "resource name"
+            },
+            "$type": "application/x-string",
+            "$rights": {
+              "tenant": 2
+            }
+          },
+          "preview": {
+            "$title": {
+              "fr": "Preview Customer",
+              "en": "Preview Customer"
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview Customer",
+                "en": "Template Preview Customer"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "detail": {
+            "$title": {
+              "fr": "Detail Customer",
+              "en": "Detail Customer"
+            },
+            "titleTemplate": {
+              "$title": {
+                "fr": "Template detail title customer",
+                "en": "Template detail title customer"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Detail Customer",
+                "en": "Template Detail Customer"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "navigation": {
+            "$title": {
+              "fr": "navigation Customer",
+              "en": "navigation Customer"
+            },
+            "semanticzoom": {
+              "$title": {
+                "fr": "navigation Detail Customer",
+                "en": "navigation Detail Customer"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        }
+      },
+      "modules": {
+        "expenseListProgress": {
+          "$title": {
+            "fr": "Mes notes en cours",
+            "en": "My progress expenses"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Aperçu notes en cours",
+              "en": "Preview progress expenses"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste les notes en cours.",
+                "en": "Expenses's progress query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de notes de frais à afficher dans la liste.",
+                "en": "Max expenses number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview expense",
+                "en": "Template Preview expense"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "expenseListWaiting": {
+          "$title": {
+            "fr": "Mes notes en attente de validation",
+            "en": "My waiting expenses"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Aperçu notes en attente de validation",
+              "en": "Preview waiting expenses"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste les notes en attente de validation.",
+                "en": "Expenses's waiting query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de notes de frais à afficher dans la liste.",
+                "en": "Max expenses number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview expense",
+                "en": "Template Preview expense"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "expenseListTerminated": {
+          "$title": {
+            "fr": "Mon historique",
+            "en": "My history"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Aperçu historique des mes notes",
+              "en": "Preview expenses's history"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste l'historique des notes.",
+                "en": "Expenses's history query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de notes de frais à afficher dans la liste.",
+                "en": "Max expenses number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview expense",
+                "en": "Template Preview expense"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "expenseList": {
+          "$title": {
+            "fr": "Liste des notes de frais",
+            "en": "Expenses list"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Aperçu notes de frais",
+              "en": "Preview expenses"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste les notes de frais.",
+                "en": "Expenses list query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de notes de frais à afficher dans la liste.",
+                "en": "Max expenses number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview expense",
+                "en": "Template Preview expense"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "detail": {
+            "$title": {
+              "fr": "Detail note de frais",
+              "en": "Detail expense"
+            },
+            "titleTemplate": {
+              "$title": {
+                "fr": "Template detail title note de frais",
+                "en": "Template detail title expense"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Detail note de frais",
+                "en": "Template Detail expense"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "navigation": {
+            "$title": {
+              "fr": "navigation note de frais",
+              "en": "navigation expense"
+            },
+            "semanticzoom": {
+              "$title": {
+                "fr": "navigation Detail note de frais",
+                "en": "navigation Detail expense"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "expenseLineList": {
+          "$title": {
+            "fr": "Liste des lignes de notes de frais",
+            "en": "Expense lines list"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Aperçu des lignes de notes de frais",
+              "en": "Preview expense lines"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste les lignes de notes de frais.",
+                "en": "Expenses list query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de lignes de notes de frais à afficher dans la liste.",
+                "en": "Max expenses number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview expense lines",
+                "en": "Template Preview expense lines"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "detail": {
+            "$title": {
+              "fr": "Detail des lignes de note de frais",
+              "en": "Detail expense lines"
+            },
+            "titleTemplate": {
+              "$title": {
+                "fr": "Template detail title ligne de note de frais",
+                "en": "Template detail title expense line"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Detail ligne de note de frais",
+                "en": "Template Detail expense line"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "semanticZoomExpense": {
+          "$title": {
+            "fr": "Vue groupée sur toutes les notes de frais",
+            "en": "Grouped view on all expense"
+          },
+          "$type": "application/x-object",
+          "$rights": {
+            "tenant": 2
+          }
+        },
+        "semanticZoomExpenseProgress": {
+          "$title": {
+            "fr": "Vue groupée sur toutes les notes de frais en cours",
+            "en": "Grouped view on all expense in progress"
+          },
+          "$type": "application/x-object",
+          "$rights": {
+            "tenant": 2
+          }
+        },
+        "semanticZoomExpenseWaiting": {
+          "$title": {
+            "fr": "Vue groupée sur toutes les notes de frais en attente de validation",
+            "en": "Grouped view on all expense waiting"
+          },
+          "$type": "application/x-object",
+          "$rights": {
+            "tenant": 2
+          }
+        },
+        "semanticZoomExpenseTerminated": {
+          "$title": {
+            "fr": "Vue groupée sur toutes les notes de frais terminé",
+            "en": "Grouped view on all expense completed"
+          },
+          "$type": "application/x-object",
+          "$rights": {
+            "tenant": 2
+          }
+        },
+        "semanticZoomInvoice": {
+          "$title": {
+            "fr": "Vue groupée sur tous les factures",
+            "en": "Grouped view on all invoices "
+          },
+          "$type": "application/x-object",
+          "$rights": {
+            "tenant": 2
+          }
+        },
+        "semanticZoomOrder": {
+          "$title": {
+            "fr": "Vue groupée sur toutes les bons de commande",
+            "en": "Grouped view on all orders "
+          },
+          "$type": "application/x-object",
+          "$rights": {
+            "tenant": 2
+          }
+        },
+        "semanticZoomQuote": {
+          "$title": {
+            "fr": "Vue groupée sur tous les devis",
+            "en": "Grouped view on all invoices "
+          },
+          "$type": "application/x-object",
+          "$rights": {
+            "tenant": 2
+          }
+        },
+        "semanticZoomDelivery": {
+          "$title": {
+            "fr": "Vue groupée sur tous les livraisons",
+            "en": "Grouped view on all deliveries "
+          },
+          "$type": "application/x-object",
+          "$rights": {
+            "tenant": 2
+          }
+        },
+        "semanticZoomCustomer": {
+          "$title": {
+            "fr": "Vue groupée sur tous les clients",
+            "en": "Grouped view on all customers "
+          },
+          "resource": {
+            "$title": {
+              "fr": "nom de la resource",
+              "en": "resource name"
+            },
+            "$type": "application/x-string",
+            "$rights": {
+              "tenant": 2
+            }
+          },
+          "datasource": {
+            "$title": {
+              "fr": "Source de données",
+              "en": "Data Source"
+            },
+            "$type": "application/x-string",
+            "$rights": {
+              "tenant": 2
+            }
+          },
+          "zoomindetail": {
+            "$title": {
+              "fr": "Tuile détail en zoom in",
+              "en": "Zoom in tile"
+            },
+            "template": {
+              "$title": {
+                "fr": "Détail détail en zoom in",
+                "en": "Template Zoom in tile"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "zoominheader": {
+            "$title": {
+              "fr": "Tuile entête en zoom in",
+              "en": "Zoom in header tile"
+            },
+            "template": {
+              "$title": {
+                "fr": "Détail entête en zoom in",
+                "en": "Template Zoom in header"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "zoomoutdetail": {
+            "$title": {
+              "fr": "Tuile détail en zoom out",
+              "en": "Zoom out tile"
+            },
+            "template": {
+              "$title": {
+                "fr": "Détail détail en zoom out",
+                "en": "Template Zoom out tile"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "sort": {
+            "$title": {
+              "fr": "Filtres",
+              "en": "Filters"
+            },
+            "$type": "application/x-object",
+            "$rights": {
+              "tenant": 2
+            }
+          }
+        },
+        "semanticZoomDashboardhome": {
+          "$title": {
+            "fr": "Vue groupée sur tous les KPI",
+            "en": "Grouped view on all KPIs "
+          },
+          "resource": {
+            "$title": {
+              "fr": "nom de la resource",
+              "en": "resource name"
+            },
+            "$type": "application/x-string",
+            "$rights": {
+              "tenant": 2
+            }
+          },
+          "datasource": {
+            "$title": {
+              "fr": "Source de données",
+              "en": "Data Source"
+            },
+            "$type": "application/x-string",
+            "$rights": {
+              "tenant": 2
+            }
+          },
+          "zoominheader": {
+            "$title": {
+              "fr": "Tuile entête en zoom in",
+              "en": "Zoom in header tile"
+            },
+            "template": {
+              "$title": {
+                "fr": "Détail entête en zoom in",
+                "en": "Template Zoom in header"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "zoomoutdetail": {
+            "$title": {
+              "fr": "Tuile détail en zoom out",
+              "en": "Zoom out tile"
+            },
+            "template": {
+              "$title": {
+                "fr": "Détail détail en zoom out",
+                "en": "Template Zoom out tile"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "sort": {
+            "$title": {
+              "fr": "Filtres",
+              "en": "Filters"
+            },
+            "$type": "application/x-object",
+            "$rights": {
+              "tenant": 2
+            }
+          }
+        },
+        "semanticZoomDashboardcustomer": {
+          "$title": {
+            "fr": "Vue groupée sur tous les KPI",
+            "en": "Grouped view on all KPIs "
+          },
+          "resource": {
+            "$title": {
+              "fr": "nom de la resource",
+              "en": "resource name"
+            },
+            "$type": "application/x-string",
+            "$rights": {
+              "tenant": 2
+            }
+          },
+          "datasource": {
+            "$title": {
+              "fr": "Source de données",
+              "en": "Data Source"
+            },
+            "$type": "application/x-string",
+            "$rights": {
+              "tenant": 2
+            }
+          },
+          "zoominheader": {
+            "$title": {
+              "fr": "Tuile entête en zoom in",
+              "en": "Zoom in header tile"
+            },
+            "template": {
+              "$title": {
+                "fr": "Détail entête en zoom in",
+                "en": "Template Zoom in header"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "zoomoutdetail": {
+            "$title": {
+              "fr": "Tuile détail en zoom out",
+              "en": "Zoom out tile"
+            },
+            "template": {
+              "$title": {
+                "fr": "Détail détail en zoom out",
+                "en": "Template Zoom out tile"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "sort": {
+            "$title": {
+              "fr": "Filtres",
+              "en": "Filters"
+            },
+            "$type": "application/x-object",
+            "$rights": {
+              "tenant": 2
+            }
+          }
+        },
+        "customerList": {
+          "$title": {
+            "fr": "Liste des clients",
+            "en": "Customer list"
+          },
+          "resource": {
+            "$title": {
+              "fr": "nom de la resource",
+              "en": "resource name"
+            },
+            "$type": "application/x-string",
+            "$rights": {
+              "tenant": 2
+            }
+          },
+          "preview": {
+            "$title": {
+              "fr": "Preview Customer",
+              "en": "Preview Customer"
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview Customer",
+                "en": "Template Preview Customer"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "detail": {
+            "$title": {
+              "fr": "Detail Customer",
+              "en": "Detail Customer"
+            },
+            "titleTemplate": {
+              "$title": {
+                "fr": "Template detail title customer",
+                "en": "Template detail title customer"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Detail Customer",
+                "en": "Template Detail Customer"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "navigation": {
+            "$title": {
+              "fr": "navigation Customer",
+              "en": "navigation Customer"
+            },
+            "semanticzoom": {
+              "$title": {
+                "fr": "navigation Detail Customer",
+                "en": "navigation Detail Customer"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "salesDocumentCustomer": {
+          "$title": {
+            "fr": "Sales Document Customer",
+            "en": "Sales Document Customer"
+          },
+          "resource": {
+            "$title": {
+              "fr": "nom de la resource",
+              "en": "resource name"
+            },
+            "$type": "application/x-string",
+            "$rights": {
+              "tenant": 2
+            }
+          },
+          "$type": "application/x-object",
+          "$rights": {
+            "tenant": 2
+          }
+        },
+        "orderList": {
+          "$title": {
+            "fr": "Liste des bons de commande",
+            "en": "Order list"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Preview bons de commande",
+              "en": "Preview orders"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste les bons de commande.",
+                "en": "Order list query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de bons de commande à afficher dans la liste.",
+                "en": "Max orders number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview order",
+                "en": "Template Preview order"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template-ios": {
+              "$title": {
+                "fr": "Template Preview order",
+                "en": "Template Preview order"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "detail": {
+            "$title": {
+              "fr": "Detail devis",
+              "en": "Detail quote"
+            },
+            "titleTemplate": {
+              "$title": {
+                "fr": "Template detail title devis",
+                "en": "Template detail title quote"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Detail devis",
+                "en": "Template Detail quote"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "navigation": {
+            "$title": {
+              "fr": "navigation devis",
+              "en": "navigation quote"
+            },
+            "semanticzoom": {
+              "$title": {
+                "fr": "navigation Detail devis",
+                "en": "navigation Detail quote"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "deliveryList": {
+          "$title": {
+            "fr": "Liste des livraisons",
+            "en": "Delivery list"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Preview bons de commande",
+              "en": "Preview deliveries"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste les livraisons.",
+                "en": "Order list query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de livraisons à afficher dans la liste.",
+                "en": "Max deliveries number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview delivery",
+                "en": "Template Preview delivery"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template-ios": {
+              "$title": {
+                "fr": "Template Preview delivery",
+                "en": "Template Preview delivery"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "detail": {
+            "$title": {
+              "fr": "Detail livraison",
+              "en": "Detail delivery"
+            },
+            "titleTemplate": {
+              "$title": {
+                "fr": "Template detail title livraison",
+                "en": "Template detail title delivery"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Detail devis",
+                "en": "Template Detail quote"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "navigation": {
+            "$title": {
+              "fr": "navigation livraison",
+              "en": "navigation delivery"
+            },
+            "semanticzoom": {
+              "$title": {
+                "fr": "navigation Detail livraison",
+                "en": "navigation Detail delivery"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "quoteList": {
+          "$title": {
+            "fr": "Liste des devis",
+            "en": "Quote list"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Preview devis",
+              "en": "Preview quotes"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste les devis.",
+                "en": "Quote list query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de devis à afficher dans la liste.",
+                "en": "Max quotes number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview quote",
+                "en": "Template Preview quote"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template-ios": {
+              "$title": {
+                "fr": "Template Preview quote",
+                "en": "Template Preview quote"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "detail": {
+            "$title": {
+              "fr": "Detail devis",
+              "en": "Detail quote"
+            },
+            "titleTemplate": {
+              "$title": {
+                "fr": "Template detail title devis",
+                "en": "Template detail title quote"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Detail devis",
+                "en": "Template Detail quote"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "navigation": {
+            "$title": {
+              "fr": "navigation devis",
+              "en": "navigation quote"
+            },
+            "semanticzoom": {
+              "$title": {
+                "fr": "navigation Detail devis",
+                "en": "navigation Detail quote"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "salesDocumentList": {
+          "$title": {
+            "fr": "Liste des documents de vente",
+            "en": "Sales Document list"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Preview sales document",
+              "en": "Preview sales document"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste les documents de vente.",
+                "en": "Sales document list query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de documents à afficher dans la liste.",
+                "en": "Max sales document number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview sales document",
+                "en": "Template Preview sales document"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "detail": {
+            "$title": {
+              "fr": "Detail sales document",
+              "en": "Detail sales document"
+            },
+            "titleTemplate": {
+              "$title": {
+                "fr": "Template detail title sales document",
+                "en": "Template detail title sales document"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Detail sales document",
+                "en": "Template Detail sales document"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "navigation": {
+            "$title": {
+              "fr": "navigation sales document",
+              "en": "navigation sales document"
+            },
+            "semanticzoom": {
+              "$title": {
+                "fr": "navigation Detail sales document",
+                "en": "navigation Detail sales document"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        },
+        "invoiceList": {
+          "$title": {
+            "fr": "Liste des factures",
+            "en": "Invoice list"
+          },
+          "preview": {
+            "$title": {
+              "fr": "Preview invoice",
+              "en": "Preview invoice"
+            },
+            "query": {
+              "$title": {
+                "fr": "Requête qui liste les factures.",
+                "en": "Invoice list query"
+              },
+              "$type": "application/x-string",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "maxResult": {
+              "$title": {
+                "fr": "Nombre max de document à afficher dans la liste.",
+                "en": "Max invoice number to display"
+              },
+              "$type": "application/x-number",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Preview invoice",
+                "en": "Template Preview invoice"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template-ios": {
+              "$title": {
+                "fr": "Template Preview invoice",
+                "en": "Template Preview invoice"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "detail": {
+            "$title": {
+              "fr": "Detail invoice",
+              "en": "Detail invoice"
+            },
+            "titleTemplate": {
+              "$title": {
+                "fr": "Template detail title invoice",
+                "en": "Template detail title invoice"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template": {
+              "$title": {
+                "fr": "Template Detail invoice",
+                "en": "Template Detail invoice"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "template-ios": {
+              "$title": {
+                "fr": "Template Detail invoice",
+                "en": "Template Detail invoice"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "customerTemplate-ios": {
+              "$title": {
+                "fr": "Template Customer invoice",
+                "en": "Template Customer invoice"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            },
+            "documentLineTemplate-ios": {
+              "$title": {
+                "fr": "Template Detail invoice",
+                "en": "Template Detail invoice"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          },
+          "navigation": {
+            "$title": {
+              "fr": "navigation invoice",
+              "en": "navigation invoice"
+            },
+            "semanticzoom": {
+              "$title": {
+                "fr": "navigation Detail invoice",
+                "en": "navigation Detail invoice"
+              },
+              "$type": "application/x-template",
+              "$rights": {
+                "tenant": 2
+              }
+            }
+          }
+        }
+      },
+      "dashboardsShortcuts": {
+        "$title": {
+          "fr": "KPI Shorcuts",
+          "en": "KPI Shorcuts"
+        },
+        "$type": "application/x-string",
+        "$rights": {
+          "tenant": 2,
+          "user": 2
+        }
+      }
+    }, 
+    "backgroundColor": "#FFFFFF",
+    "i18n": {
+      "welcome": {
+        "en": "Welcome i18n",
+        "fr": "Bonjour i18n"
+      },
+      "addFavorite": {
+        "en": "Add a favorite",
+        "fr": "Ajouter un favori"
+      },
+      "customerDetailSectionTitle": {
+        "en": "Customer Information",
+        "fr": "Informations du client"
+      },
+      "customerDetail": {
+        "en": "Customer Information",
+        "fr": "Informations du client"
+      },
+      "accountingType": {
+        "en": "Accounting Type",
+        "fr": "Type de compte"
+      },
+      "operatingCompanyName": {
+        "en": "Operating Company",
+        "fr": "Nom de société"
+      },
+      "operatingCompanyShortName": {
+        "en": "Short name",
+        "fr": "N° de dossier SBS"
+      },
+      "customerAddress": {
+        "en": "Customer Address",
+        "fr": "Adresse du Client"
+      }, 
+      "customerListAll": {
+        "en": "All Customers",
+        "fr": "Tous les clients"
+      },
+      "prompts_notLimit": {
+        "en": "No Limit",
+        "fr": "Aucune limite"
+      },
+      "pivotTable_noDataText": {
+        "en": "No Data",
+        "fr": "Aucune donnée"
+      },
+      "dataviz_limit_otherGroupLabel": {
+        "en": "Others",
+        "fr": "Autres"
+      },
+      "kpi_notEnoughData": {
+        "en": "Not Enough Data",
+        "fr": "Pas assez de données"
+      },
+      "kpiDetail_fromText": {
+        "en": "From",
+        "fr": "Du"
+      },
+      "kpiDetail_toText": {
+        "en": "To",
+        "fr": "Au"
+      }, 
+      "connectionStatusTitle0": {
+        "en": "Offline",
+        "fr": "Hors ligne"
+      },
+      "connectionStatusMessage0": {
+        "en": "No network found.",
+        "fr": "Nous ne détectons pas de connexion réseau."
+      },
+      "connectionStatusTitle1": {
+        "en": "Unavailable Server",
+        "fr": "Serveur indisponible"
+      },
+      "connectionStatusMessage1": {
+        "en": "Our server appears to be unavailable.",
+        "fr": "Nos serveurs semblent indisponibles."
+      },
+      "connectionStatusTitle2": {
+        "en": "Unavailable Server",
+        "fr": "Serveur indisponible"
+      },
+      "connectionStatusMessage2": {
+        "en": "Our server appears to be unavailable.",
+        "fr": "Nos serveurs semblent indisponibles."
+      },
+      "connectionStatusTitle3": {
+        "en": "Unavailable Server",
+        "fr": "Serveur indisponible"
+      },
+      "connectionStatusMessage3": {
+        "en": "Our server appears to be unavailable.",
+        "fr": "Nos serveurs semblent indisponibles."
+      },
+      "connectionStatusTitle4": {
+        "en": "Unavailable Server",
+        "fr": "Serveur indisponible"
+      },
+      "connectionStatusMessage4": {
+        "en": "Our server appears to be unavailable.",
+        "fr": "Nos serveurs semblent indisponibles."
+      },
+      "connectionStatusTitle5": {
+        "en": "Unidentified",
+        "fr": "Non Connecté"
+      },
+      "connectionStatusMessage5": {
+        "en": "Please connect to access all of our services.",
+        "fr": "Merci de vous identifier pour accéder à nos services."
+      },
+      "connectionStatusTitle6": {
+        "en": "Online",
+        "fr": "En ligne"
+      },
+      "connectionStatusMessage6": {
+        "en": "You are online.",
+        "fr": "Vous êtes connecté."
+      }
+    }, 
+    "style": "",
+    "config": {
+      "formatting": {
+        "number": {
+          "default": {
+            "roundPrecision": 0
+          },
+          "percent": {
+            "roundPrecision": 0
+          },
+          "price": {
+            "roundPrecision": 2
+          }
+        }
+      }
+    },
+    "sync": {
+      "resources": [
+        {
+          "type": "repository",
+          "resourceKind": "customer",
+          "count": 2000
+        }
+      ]
+    },
+    "module": {
+      "customerList": {
+        "resource": "customer",
+        "moduleDisplayName": "{{$i18n 'module.customer.title'}}",
+        "search": "name like '%{{searchString}}%' or shortName like '%{{searchString}}%' or primaryContact.firstName like '%{{searchString}}%' or primaryContact.surName like '%{{searchString}}%'",
+        "preview": {
+          "template": "<div class='item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{name}}</p><p class='textMediumcolorSecondaryspan6'>{{shortName}}</p></div></div>"
+        },
+        "detail": {
+          "template": "<div class='item'><div class='contentTile'>{{#if mainPostalAddress}}<h3 class='infoTitle'>{{$i18n 'customerAddress'}}</h3><h4 class='infoContent'><a href='maps:q={{mainPostalAddress.address1}}+{{mainPostalAddress.address2}}+{{mainPostalAddress.zipCode}}+{{mainPostalAddress.town}}+{{mainPostalAddress.country}}'>{{mainPostalAddress.address1}}&nbsp;{{mainPostalAddress.address2}}<br/>{{mainPostalAddress.zipCode}}&nbsp;{{mainPostalAddress.town}}<br/>{{mainPostalAddress.country}}</a></h4>{{/if}}<br/><h3 class='infoTitle'>{{primaryContact.companyContext}}</h3><h4 class='infoContent'>{{primaryContact.function}}<br/>{{primaryContact.surName}}&nbsp;{{primaryContact.firstName}}</h4><br/><h3 class='infoTitle'>{{primaryContact.principalPhone.originalType}}</h3><h4 class='infoContent'><a href='tel:{{primaryContact.principalPhone.number}}'>{{primaryContact.principalPhone.number}}</a></h4><br/><h3 class='infoTitle'>{{primaryContact.principalEmail.originalType}}</h3><h4 class='infoContent'><a href='mailto:{{primaryContact.principalEmail.address}}'>{{primaryContact.principalEmail.address}}</a></h4><br/></div></div>",
+          "titleTemplate": "{{name}}",
+          "share": "<h4>{{$i18n 'module.share.customerInformations'}} {{name}}</h4><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr><td width='40' bgcolor='#30b150'>&nbsp;</td><td bgcolor='#30b150'><font color='#FFFFFF'><br/>{{$i18n 'customerAddress'}}<br/></font></td><td width='40' bgcolor='#30b150'>&nbsp;</td><td width='40'>&nbsp;</td><td>{{mainPostalAddress.address1}}&nbsp;{{mainPostalAddress.address2}}&nbsp;{{mainPostalAddress.zipCode}}&nbsp;{{mainPostalAddress.town}}&nbsp;{{mainPostalAddress.country}}</td></tr><tr><td width='40' bgcolor='#30b150'>&nbsp;</td><td bgcolor='#30b150'><font color='#FFFFFF'><br/>{{primaryContact.companyContext}}<br/></font></td><td width='40' bgcolor='#30b150'>&nbsp;</td><td width='40'>&nbsp;</td><td>{{primaryContact.function}}&nbsp;{{primaryContact.surName}}&nbsp;{{primaryContact.firstName}}</td></tr><tr><td width='40' bgcolor='#30b150'>&nbsp;</td><td bgcolor='#30b150'><font color='#FFFFFF'><br/>{{primaryContact.principalPhone.originalType}}<br/></font></td><td width='40' bgcolor='#30b150'>&nbsp;</td><td width='40'>&nbsp;</td><td>{{primaryContact.principalPhone.number}}</td></tr><tr><td width='40' bgcolor='#30b150'>&nbsp;</td><td bgcolor='#30b150'><font color='#FFFFFF'><br/>{{primaryContact.principalEmail.originalType}}<br/></font></td><td width='40' bgcolor='#30b150'>&nbsp;</td><td width='40'>&nbsp;</td><td>{{primaryContact.principalEmail.address}}</td></tr></table>"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomCustomer"
+        }
+      }
+    },
+    "modules": {
+      "semanticZoomExpense": {
+        "resource": "expense",
+        "datasource": "expense",
+        "zoomindetail": {
+          "template": "<div class='item {{_expenseStatus.title}} {{#if $syncStatus.notSynchronized}} notSync {{/if}}'><div class='contentTile'><div class='name'>{{expenseLabel}}</div><div class='date'>{{$date lastModified}}</div><div class='amount'>{{expenseAmountTVA}} €</div><div class='footer'><div class='item-name'>{{_expenseStatus.title}} </div></div></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomExpense header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "created": {
+            "$title": {
+              "fr": "Trier par date de création",
+              "en": "Sort by created date"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "created",
+              "groupnametype": "created",
+              "sorttype": "created",
+              "dateformat": "YYYY-MM-DD",
+              "datesep": "-"
+            }
+          }
+        }
+      },
+      "semanticZoomExpenseProgress": {
+        "resource": "expense",
+        "datasource": "expense?where= _expenseStatus.title like 'saisie'&orderBy=created&select=*,expenseStatus.title",
+        "zoomindetail": {
+          "template": "<div class='item {{_expenseStatus.title}} {{#if $syncStatus.notSynchronized}} notSync {{/if}}'><div class='contentTile'><div class='name'>{{expenseLabel}}</div><div class='date'>{{$date lastModified}}</div><div class='amount'>{{expenseAmountTVA}} €</div><div class='footer'><div class='item-name'>{{_expenseStatus.title}} </div>{{#if $syncStatus.notSynchronized}}<div class='notSync'>{{$i18n 'hermes.notSync' }}</div> {{/if}}</div></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomExpense header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "createDate": {
+            "$title": {
+              "fr": "Trier par date de création",
+              "en": "Sort by created date"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "created",
+              "groupnametype": "created",
+              "sorttype": "date",
+              "dateformat": "DD-MM-YYYY",
+              "datesep": "-"
+            }
+          }
+        }
+      },
+      "semanticZoomExpenseWaiting": {
+        "resource": "expense",
+        "datasource": "expense?where= _expenseStatus.title like 'valid'&orderBy=created&select=*,expenseStatus.title",
+        "zoomindetail": {
+          "template": "<div class='item {{_expenseStatus.title}} {{#if $syncStatus.notSynchronized}} notSync {{/if}}'><div class='contentTile'><div class='name'>{{expenseLabel}}</div><div class='date'>{{$date lastModified}}</div><div class='amount'>{{expenseAmountTVA}} €</div><div class='footer'><div class='item-name'>{{_expenseStatus.title}} </div>{{#if $syncStatus.notSynchronized }}<div class='notSync'>{{$i18n 'hermes.notSync' }}</div> {{/if}}</div></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomExpense header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "createDate": {
+            "$title": {
+              "fr": "Trier par date de création",
+              "en": "Sort by created date"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "created",
+              "groupnametype": "created",
+              "sorttype": "date",
+              "dateformat": "YYYY-MM-DD",
+              "datesep": "-"
+            }
+          }
+        }
+      },
+      "semanticZoomExpenseTerminated": {
+        "resource": "expense",
+        "datasource": "expense?where= _expenseStatus.title like 'completed'&orderBy=created&select=*,expenseStatus.title",
+        "zoomindetail": {
+          "template": "<div class='item {{_expenseStatus.title}} {{#if $syncStatus.notSynchronized}} notSync {{/if}}'><div class='contentTile'><div class='name'>{{expenseLabel}}</div><div class='date'>{{$date lastModified}}</div><div class='amount'>{{expenseAmountTVA}} €</div><div class='footer'><div class='item-name'>{{_expenseStatus.title}} </div>{{#if $syncStatus.notSynchronized }}<div class='notSync'>{{$i18n 'hermes.notSync' }}</div> {{/if}}</div></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomExpense header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "createDate": {
+            "$title": {
+              "fr": "Trier par date de création",
+              "en": "Sort by created date"
+            },
+            "options": {
+              "sortby": "created",
+              "groupnametype": "created",
+              "sorttype": "date",
+              "dateformat": "YYYY-MM-DD",
+              "datesep": "-"
+            }
+          }
+        }
+      },
+      "quoteList": {
+        "resource": "salesDocument",
+        "moduleDisplayName": "{{$i18n 'module.quote.title'}}",
+        "search": "number like '%{{searchString}}%'",
+        "preview": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>",
+          "template-ios": "<div class='item {type.$key}'><div class='contentTile'><div class='name'>{_customer.name}</div><div class='date'>{date:date('d-m-Y')}</div><div class='amount'>{totalGrossAmountwithoutVAT}</div><div class='footer'><div class='item-name'>{originalType}</div><div class='number'>{number}</div></div></div></div>",
+          "query": "salesDocument?where=type eq 'quotation'&orderBy=date desc&select=*,customer.name,customer.shortName",
+          "maxResult": 5
+        },
+        "detail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><p class='infoTitle relief'>{{$i18n 'module.customer'}}<span class='infoContent relief'>{{#if _customer.shortName}} {{_customer.shortName}} {{else}} - {{/if}}</span></p><p class='infoTitle relief'>{{$i18n 'module.totalwithoutvat'}}<span class='infoContent relief'>{{#if totalGrossAmountwithoutVAT}} {{$number totalGrossAmountwithoutVAT}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithoutvatnet'}}<span class='infoContent'>{{#if totalAmountAfterDiscount}} {{$number totalAmountAfterDiscount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totaltax'}}<span class='infoContent'>{{#if totalTaxAmount}} {{$number totalTaxAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithvat'}}<span class='infoContent'>{{#if totalGrossAmount}} {{$number totalGrossAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.discount'}}<span class='infoContent'>{{#if settlementDiscountAmountDocument}} {{$number settlementDiscountAmountDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.termamount'}}<span class='infoContent'>{{#if amountTermDocument}} {{amountTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.shippingcost'}}<span class='infoContent'>{{#if expenseChargedAmount}} {{$number expenseChargedAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.dueterm'}}<span class='infoContent'>{{#if dueDateTermDocument}} {{$date dueDateTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.pricinglist'}}<span class='infoContent'>{{#if customerGroupReference1}} {{customerGroupReference1}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingauthority'}}<span class='infoContent'>{{#if payingAuthorityFinancialAccount}} {{payingAuthorityFinancialAccount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.modelregulation'}}<span class='infoContent'>{{#if originalDeliveryTypeTermDocument}} {{originalDeliveryTypeTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingmethod'}}<span class='infoContent'>{{#if PaymentMethod}} {{PaymentMethod}} {{else}} - {{/if}}</span></p></div></div>",
+          "titleTemplate": "{{number}}<br/><span>{{originalType}}</span>",
+          "documentLineQuery": "salesDocumentLine?where=salesDocumentReference eq '{{$key}}'&select=*,commodity/*",
+          "documentLineTemplate": "<div style='-ms-grid-column:1;-ms-grid-row:{{rownum}}' class='tableLine'>{{_commodity.commodityDescription}}</div> <div style='-ms-grid-column:2;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{amount.lineQuantity}}</div> <div style='-ms-grid-column:3;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.unitPrice 'price'}} €</div><div style='-ms-grid-column:4;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.discountPercent 'percent'}} %</div> <div style='-ms-grid-column:5;-ms-grid-row:{{rownum}};text-align:right;' class='tableLineLast'> {{$number amount.lineAmountWithoutVATAfterDiscount 'price'}} €</div>",
+          "documentHeaderDetailsTemplate": "<div class='quotationRelief left'>{{originalType}} {{number}}</div><div class='bold right'>{{$i18n 'module.from'}} {{$date date}}</div></div><div class='clear'></div><div class='left linkTo customerDocDetail'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{_customer.name}}</p><p class='textMediumcolorSecondaryspan6'>{{_customer.shortName}}</p></div></div></div><div id='amounts' class='right'><div class='left decalright'>{{$i18n 'module.totalwithoutvatnet'}}</div><div class='right'>{{$number totalAmountAfterDiscount}}</div>",
+          "share": "<h4>{{$i18n 'module.quote.documentname'}} {{number}} {{$i18n 'module.from'}} {{$date date}}</h4><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customer'}}</font></td><td style='padding:15px'>{{_customer.name}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customerReference'}}</font></td><td style='padding:15px'>{{_customer.shortName}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.amountwithoutvat'}}</font></td><td style='padding:15px'>{{totalAmountAfterDiscount}}</td></tr></table>"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomQuote"
+        }
+      },
+      "deliveryList": {
+        "resource": "salesDocument",
+        "moduleDisplayName": "{{$i18n 'module.delivery.title'}}",
+        "search": "number like '%{{searchString}}%'",
+        "preview": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>",
+          "template-ios": "<div class='item {type.$key}'><div class='contentTile'><div class='name'>{_customer.name}</div><div class='date'>{date:date('d-m-Y')}</div><div class='amount'>{totalGrossAmountwithoutVAT}</div><div class='footer'><div class='item-name'>{originalType}</div><div class='number'>{number}</div></div></div></div>",
+          "query": "salesDocument?where=type eq 'delivery'&orderBy=date desc&select=*,customer.name,customer.shortName,depotDeliveryCustomer.name,depotStore.name",
+          "maxResult": 5
+        },
+        "detail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><p class='infoTitle'>{{$i18n 'module.deliverydate'}}<span class='infoContent'>{{deliveryDate}}</span></p><p class='infoTitle'>{{$i18n 'module.expedition'}}<span class='infoContent'>{{expedition}}</span></p><p class='infoTitle'>{{$i18n 'module.expensechargedamount'}}<span class='infoContent'>{{$number expenseChargedAmount}}</span></p><p class='infoTitle'>{{$i18n 'module.depotDeliveryCustomer'}}<span class='infoContent'>{{_depotDeliveryCustomer.name}}</span></p><p class='infoTitle'>{{$i18n 'module.depot'}}<span class='infoContent'>{{_depotStore.name}}</span></p></div></div>",
+          "template-ios":"<div class='sales-doc'> <hgroup class='sales-doc-header'><span class='date'>{date:date('d-m-Y')}</span><p class='total'>Total HT Net {totalAmountAfterDiscount}</p></hgroup><dl class='sales-doc-infos'><dt>Date de livraison</dt><dd>{deliveryDate}</dd><dt>Mode d'expédition</dt><dd>{expedition}</dd><dt>Coût d'expédition</dt><dd>{expenseChargedAmount}</dd><dt>Lieu de livraison</dt><dd>{_depotDeliveryCustomer.name}</dd><dt>Dépot</dt><dd>{_depotStore.name}</dd></dl></div>",
+          "customerTemplate-ios":"<div class='sales-doc-customer'><span class='name'>{_customer.name}</span><span class='short-name'>{_customer.shortName}</span></div>",
+          "documentLineTemplate-ios":"<table class='sales-doc-lines'><thead><tr><th>Désignation</th><th>Quanité</th><th>Prix Unitaire HT</th><th>Remise</th><th>Total</th></tr></thead><tbody><tpl for='.'><tr><td>{_commodity.commodityDescription}</td><td>{amount.lineQuantity}</td><td>{amount.unitPrice}</td><td>{amount.discountPercent}</td><td>{amount.lineAmountWithoutVATAfterDiscount}</td></tr></tpl></tbody></table>",
+          "titleTemplate": "{{number}}<br/><span>{{originalType}}</span>",
+          "documentLineQuery": "salesDocumentLine?where=salesDocumentReference eq '{{$key}}'&select=*,commodity.commodityDescription",
+          "documentLineTemplate": "<div style='-ms-grid-column:1;-ms-grid-row:{{rownum}}' class='tableLine'>{{_commodity.commodityDescription}}</div> <div style='-ms-grid-column:2;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{amount.lineQuantity}}</div> <div style='-ms-grid-column:3;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.unitPrice 'price'}} €</div> <div style='-ms-grid-column:4;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.discountPercent 'percent'}} %</div><div style='-ms-grid-column:5;-ms-grid-row:{{rownum}};text-align:right;' class='tableLineLast'> {{$number amount.lineAmountWithoutVATAfterDiscount 'price'}} €</div>",
+          "documentHeaderDetailsTemplate": "<div class='deliveryRelief left'>{{originalType}} {{number}}</div><div class='bold right'>du {{$date date}}</div></div><div class='clear'></div><div class='left linkTo customerDocDetail'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{_customer.name}}</p><p class='textMediumcolorSecondaryspan6'>{{_customer.shortName}}</p></div></div></div><div id='amounts' class='right'><div class='left decalright'>{{$i18n 'module.totalwithoutvatnet'}}</div><div class='right'>{{$number totalAmountAfterDiscount}}</div>",
+          "share": "<h4>{{$i18n 'module.delivery.documentname'}} {{number}} {{$i18n 'module.from'}} {{$date date}}</h4><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customer'}}</font></td><td style='padding:15px'>{{_customer.name}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customerReference'}}</font></td><td style='padding:15px'>{{_customer.shortName}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>Montant H.T</font></td><td style='padding:15px'>{{totalAmountAfterDiscount}}</td></tr></table>"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomDelivery"
+        }
+      },
+      "semanticZoomDelivery": {
+        "resource": "salesDocument",
+        "datasource": "salesDocument?where=type eq 'delivery'&select=number,totalGrossAmountwithoutVAT,originalType,type,date,customer.name",
+        "zoomindetail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomInvoice header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item {{type.$key}}'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "customerName": {
+            "$title": {
+              "fr": "Trier par nom du client",
+              "en": "Sort by customer's name"
+            },
+            "options": {
+              "sortby": "_customer.name",
+              "groupnametype": "_customer.name"
+            }
+          },
+          "createDate": {
+            "$title": {
+              "fr": "Trier par date de document",
+              "en": "Sort by document date"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "date",
+              "groupnametype": "date",
+              "sorttype": "date",
+              "dateformat": "YYYY-MM-DD",
+              "datesep": "-"
+            }
+          },
+          "originalType": {
+            "$title": {
+              "fr": "Trier par type de document",
+              "en": "Sort by document type"
+            },
+            "options": {
+              "sortby": "originalType",
+              "groupnametype": "originalType"
+            }
+          }
+        }
+      },
+      "semanticZoomQuote": {
+        "resource": "salesDocument",
+        "datasource": "salesDocument?where=type eq 'quotation'&select=number,totalGrossAmountwithoutVAT,originalType,type,date,customer.name",
+        "zoomindetail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomInvoice header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item {{type.$key}}'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "customerName": {
+            "$title": {
+              "fr": "Trier par nom du client",
+              "en": "Sort by customer's name"
+            },
+            "options": {
+              "sortby": "_customer.name",
+              "groupnametype": "_customer.name"
+            }
+          },
+          "createDate": {
+            "$title": {
+              "fr": "Trier par date de document",
+              "en": "Sort by document date"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "date",
+              "groupnametype": "date",
+              "sorttype": "date",
+              "dateformat": "YYYY-MM-DD",
+              "datesep": "-"
+            }
+          },
+          "originalType": {
+            "$title": {
+              "fr": "Trier par type de document",
+              "en": "Sort by document type"
+            },
+            "options": {
+              "sortby": "originalType",
+              "groupnametype": "originalType"
+            }
+          }
+        }
+      },
+      "invoiceList": {
+        "resource": "salesDocument",
+        "moduleDisplayName": "{{$i18n 'module.invoice.title'}}",
+        "search": "number like '%{{searchString}}%'",
+        "preview": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>",
+          "template-ios": "<div class='item {type.$key}'><div class='contentTile'><div class='name'>{_customer.name}</div><div class='date'>{date:date('d-m-Y')}</div><div class='amount'>{totalGrossAmountwithoutVAT}</div><div class='footer'><div class='item-name'>{originalType}</div><div class='number'>{number}</div></div></div></div>",
+          "query": "salesDocument?where=type eq 'invoice'&orderBy=date desc&select=*,customer.name,customer.shortName",
+          "maxResult": 5
+        },
+        "detail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><p class='infoTitle relief'>{{$i18n 'module.customer'}}<span class='infoContent relief'>{{#if _customer.shortName}} {{_customer.shortName}} {{else}} - {{/if}}</span></p><p class='infoTitle relief'>{{$i18n 'module.totalwithoutvat'}}<span class='infoContent relief'>{{#if totalGrossAmountwithoutVAT}} {{$number totalGrossAmountwithoutVAT}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithoutvatnet'}}<span class='infoContent'>{{#if totalAmountAfterDiscount}} {{$number totalAmountAfterDiscount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totaltax'}}<span class='infoContent'>{{#if totalTaxAmount}} {{$number totalTaxAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithvat'}}<span class='infoContent'>{{#if totalGrossAmount}} {{$number totalGrossAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.discount'}}<span class='infoContent'>{{#if settlementDiscountAmountDocument}} {{$number settlementDiscountAmountDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.termamount'}}<span class='infoContent'>{{#if amountTermDocument}} {{amountTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.shippingcost'}}<span class='infoContent'>{{#if expenseChargedAmount}} {{$number expenseChargedAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.dueterm'}}<span class='infoContent'>{{#if dueDateTermDocument}} {{$date dueDateTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.pricinglist'}}<span class='infoContent'>{{#if customerGroupReference1}} {{customerGroupReference1}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingauthority'}}<span class='infoContent'>{{#if payingAuthorityFinancialAccount}} {{payingAuthorityFinancialAccount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.modelregulation'}}<span class='infoContent'>{{#if originalDeliveryTypeTermDocument}} {{originalDeliveryTypeTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingmethod'}}<span class='infoContent'>{{#if PaymentMethod}} {{PaymentMethod}} {{else}} - {{/if}}</span></p></div></div>",
+          "template-ios": "<div class='sales-doc'> <hgroup class='sales-doc-header'><span class='date'>{date:date('d-m-Y')}</span><p class='total'>Total HT Net {totalAmountAfterDiscount}</p></hgroup><dl class='sales-doc-infos'><dt>Client</dt><dd>{_customer.shortName}</dd><dt>Total HT</dt><dd>{totalGrossAmountwithoutVAT}</dd><dt>Total HT Net</dt><dd>{totalAmountAfterDiscount}</dd><dt>Total taxes</dt><dd>{totalTaxAmount}</dd><dt>Total TTC</dt><dd>{totalGrossAmount}</dd><dt>Escompte</dt><dd>{settlementDiscountAmountDocument}</dd><dt>Montant</dt><dd>{amountTermDocument}</dd><dt>Coût expédition</dt><dd>{expenseChargedAmount}</dd><dt>Échéance</dt><dd>{dueDateTermDocument}</dd><dt>Catégorie tarifaire</dt><dd>{customerGroupReference1}</dd><dt>Payeur</dt><dd>{payingAuthorityFinancialAccount}</dd><dt>Modèle de règlement</dt><dd>{originalDeliveryTypeTermDocument}</dd><dt>Mode de règlement</dt><dd>{paymentMethod}</dd></dl></div>",
+          "customerTemplate-ios": "<div class='sales-doc-customer'><span class='name'>{_customer.name}</span><span class='short-name'>{_customer.shortName}</span></div>",
+          "documentLineTemplate-ios": "<table class='sales-doc-lines'><thead><tr><th>Désignation</th><th>Quanité</th><th>Prix Unitaire HT</th><th>Remise</th><th>Total</th></tr></thead><tbody><tpl for='.'><tr><td>{_commodity.commodityDescription}</td><td>{amount.lineQuantity}</td><td>{amount.unitPrice}</td><td>{amount.discountPercent}</td><td>{amount.lineAmountWithoutVATAfterDiscount}</td></tr></tpl></tbody></table>",
+          "titleTemplate": "{{number}}<br/><span>{{originalType}}</span>",
+          "documentLineQuery": "salesDocumentLine?where=salesDocumentReference eq '{{$key}}'&select=*,commodity.commodityDescription",
+          "documentLineTemplate": "<div style='-ms-grid-column:1;-ms-grid-row:{{rownum}}' class='tableLine'>{{_commodity.commodityDescription}}</div> <div style='-ms-grid-column:2;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{amount.lineQuantity}}</div> <div style='-ms-grid-column:3;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.unitPrice 'price'}} €</div> <div style='-ms-grid-column:4;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.discountPercent 'percent'}} %</div><div style='-ms-grid-column:5;-ms-grid-row:{{rownum}};text-align:right;' class='tableLineLast'> {{$number amount.lineAmountWithoutVATAfterDiscount 'price'}} €</div>",
+          "documentHeaderDetailsTemplate": "<div class='invoiceRelief left'>{{originalType}} {{number}}</div><div class='bold right'>{{$i18n 'module.from'}} {{$date date}}</div></div><div class='clear'></div><div class='left linkTo customerDocDetail'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{_customer.name}}</p><p class='textMediumcolorSecondaryspan6'>{{_customer.shortName}}</p></div></div></div><div id='amounts' class='right'><div class='left decalright'>{{$i18n 'module.totalwithoutvatnet'}}</div><div class='right'>{{$number totalAmountAfterDiscount}}</div>",
+          "share": "<h4>{{$i18n 'module.invoice.documentname'}} {{number}} {{$i18n 'module.from'}} {{$date date}}</h4><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customer'}}</font></td><td style='padding:15px'>{{_customer.name}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customerReference'}}</font></td><td style='padding:15px'>{{_customer.shortName}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.amountwithoutvat'}}<br/></font></td><td style='padding:15px'>{{totalAmountAfterDiscount}}</td></tr></table>"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomInvoice"
+        }
+      },
+      "salesDocumentList": {
+        "resource": "salesDocument",
+        "moduleDisplayName": "{{$i18n 'module.document.title'}}",
+        "search": "number like '%{{searchString}}%'",
+        "preview": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>",
+          "query": "salesDocument?orderBy=date desc&select=*,customer.name",
+          "maxResult": 5
+        },
+        "detail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><p class='infoTitle relief'>{{$i18n 'module.customer'}}<span class='infoContent relief'>{{#if _customer.shortName}} {{_customer.shortName}} {{else}} - {{/if}}</span></p><p class='infoTitle relief'>{{$i18n 'module.totalwithoutvat'}}<span class='infoContent relief'>{{#if totalGrossAmountwithoutVAT}} {{$number totalGrossAmountwithoutVAT}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithoutvatnet'}}<span class='infoContent'>{{#if totalAmountAfterDiscount}} {{$number totalAmountAfterDiscount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totaltax'}}<span class='infoContent'>{{#if totalTaxAmount}} {{$number totalTaxAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithvat'}}<span class='infoContent'>{{#if totalGrossAmount}} {{$number totalGrossAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.discount'}}<span class='infoContent'>{{#if settlementDiscountAmountDocument}} {{$number settlementDiscountAmountDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.termamount'}}<span class='infoContent'>{{#if amountTermDocument}} {{amountTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.shippingcost'}}<span class='infoContent'>{{#if expenseChargedAmount}} {{$number expenseChargedAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.dueterm'}}<span class='infoContent'>{{#if dueDateTermDocument}} {{$date dueDateTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.pricinglist'}}<span class='infoContent'>{{#if customerGroupReference1}} {{customerGroupReference1}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingauthority'}}<span class='infoContent'>{{#if payingAuthorityFinancialAccount}} {{payingAuthorityFinancialAccount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.modelregulation'}}<span class='infoContent'>{{#if originalDeliveryTypeTermDocument}} {{originalDeliveryTypeTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingmethod'}}<span class='infoContent'>{{#if PaymentMethod}} {{PaymentMethod}} {{else}} - {{/if}}</span></p></div></div>",
+          "titleTemplate": "{{number}}<br/><span>{{originalType}}</span>",
+          "documentLineQuery": "salesDocumentLine?where=salesDocumentReference eq '{{$key}}'&select=*,commodity.commodityDescription",
+          "documentLineTemplate": "<div style='-ms-grid-column:1;-ms-grid-row:{{rownum}}' class='tableLine'>{{_commodity.commodityDescription}}</div> <div style='-ms-grid-column:2;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{amount.lineQuantity}}</div> <div style='-ms-grid-column:3;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.unitPrice 'price'}} €</div> <div style='-ms-grid-column:4;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.discountPercent 'percent'}} %</div><div style='-ms-grid-column:5;-ms-grid-row:{{rownum}};text-align:right;' class='tableLineLast'> {{$number amount.lineAmountWithoutVATAfterDiscount 'price'}} €</div>",
+          "documentHeaderDetailsTemplate": "<div class='{{type.$key}}Relief left'>{{originalType}} {{number}}</div><div class='bold right'>{{$i18n 'module.from'}} {{$date date}}</div></div><div class='clear'></div><div class='left linkTo customerDocDetail'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{_customer.name}}</p><p class='textMediumcolorSecondaryspan6'>{{_customer.shortName}}</p></div></div></div><div id='amounts' class='right'><div class='left decalright'>{{$i18n 'module.totalwithoutvatnet'}}</div><div class='right'>{{$number totalAmountAfterDiscount}}</div>",
+          "share": "<h4>{{$i18n 'module.document.documentname'}} {{number}} {{$i18n 'module.from'}} {{$date date}}</h4><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customer'}}</font></td><td style='padding:15px'>{{_customer.name}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customerReference'}}</font></td><td style='padding:15px'>{{_customer.shortName}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.amountwithoutvat'}}</font></td><td style='padding:15px'>{{totalAmountAfterDiscount}}</td></tr></table>"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomInvoice"
+        }
+      },
+      "semanticZoomInvoice": {
+        "resource": "salesDocument",
+        "datasource": "salesDocument?where=type eq 'invoice'&select=number,totalGrossAmountwithoutVAT,originalType,type,date,customer.name",
+        "zoomindetail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomInvoice header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item {{type.$key}}'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "customerName": {
+            "$title": {
+              "fr": "Trier par nom du client",
+              "en": "Sort by customer's name"
+            },
+            "options": {
+              "sortby": "_customer.name",
+              "groupnametype": "_customer.name"
+            }
+          },
+          "createDate": {
+            "$title": {
+              "fr": "Trier par date de document",
+              "en": "Sort by document date"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "date",
+              "groupnametype": "date",
+              "sorttype": "date",
+              "dateformat": "YYYY-MM-DD",
+              "datesep": "-"
+            }
+          },
+          "originalType": {
+            "$title": {
+              "fr": "Trier par type de document",
+              "en": "Sort by document type"
+            },
+            "options": {
+              "sortby": "originalType",
+              "groupnametype": "originalType"
+            }
+          }
+        }
+      },
+      "customerList": {
+        "resource": "customer",
+        "moduleDisplayName": "{{$i18n 'module.customer.title'}}",
+        "search": "name like '%{{searchString}}%' or shortName like '%{{searchString}}%' or primaryContact.firstName like '%{{searchString}}%' or primaryContact.surName like '%{{searchString}}%'",
+        "preview": {
+          "template": "<div class='item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{name}}</p><p class='textMediumcolorSecondaryspan6'>{{shortName}}</p></div></div>"
+        },
+        "detail": {
+          "template": "<div class='item'><div class='contentTile'><h3 class='infoTitle'>{{$i18n 'customerAddress'}}</h3><h4 class='infoContent'>{{mainPostalAddress.address1}}&nbsp;{{mainPostalAddress.address2}}<br/>{{mainPostalAddress.zipCode}}&nbsp;{{mainPostalAddress.town}}<br/>{{mainPostalAddress.country}}</h4><br/><h3 class='infoTitle'>{{primaryContact.companyContext}}</h3><h4 class='infoContent'>{{primaryContact.function}}<br/>{{primaryContact.surName}}&nbsp;{{primaryContact.firstName}}</h4><br/><h3 class='infoTitle'>{{primaryContact.principalPhone.originalType}}</h3><h4 class='infoContent'>{{primaryContact.principalPhone.number}}</h4><br/><h3 class='infoTitle'>{{primaryContact.principalEmail.originalType}}</h3><h4 class='infoContent'><a href='mailto:{{primaryContact.principalEmail.address}}'>{{primaryContact.principalEmail.address}}</a></h4><br/></div></div>",
+          "titleTemplate": "{{name}}",
+          "share": "<h4>{{$i18n 'module.share.customerInformations'}} {{name}}</h4><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'customerAddress'}}</font></td><td style='padding:15px'>{{mainPostalAddress.address1}}&nbsp;{{mainPostalAddress.address2}}&nbsp;{{mainPostalAddress.zipCode}}&nbsp;{{mainPostalAddress.town}}&nbsp;{{mainPostalAddress.country}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{primaryContact.companyContext}}</font></td><td style='padding:15px'>{{primaryContact.function}}&nbsp;{{primaryContact.surName}}&nbsp;{{primaryContact.firstName}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{primaryContact.principalPhone.originalType}}</font></td><td style='padding:15px'>{{primaryContact.principalPhone.number}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{primaryContact.principalEmail.originalType}}</font></td><td style='padding:15px'>{{primaryContact.principalEmail.address}}</td></tr></table>"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomCustomer"
+        }
+      },
+      "semanticZoomCustomer": {
+        "resource": "customer",
+        "datasource": "customer",
+        "zoomindetail": {
+          "template": "<div class='item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{name}}</p><p class='textMediumcolorSecondaryspan6'>{{shortName}}</p></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomCustomer header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "alpha": {
+            "$title": {
+              "fr": "Trier par ordre alphabétique",
+              "en": "Sort by alphabetical order"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "name",
+              "sorttype": "alpha",
+              "groupnametype": "name"
+            }
+          },
+          "accountingType": {
+            "$title": {
+              "fr": "Trier par type de compte",
+              "en": "Sort by account type"
+            },
+            "options": {
+              "sortby": "accountingType",
+              "groupnametype": "accountingType"
+            }
+          },
+          "zipcode": {
+            "$title": {
+              "fr": "Trier par code postal",
+              "en": "Sort by zip code"
+            },
+            "options": {
+              "sortby": "mainPostalAddress.zipCode",
+              "groupnametype": "mainPostalAddress.zipCode"
+            }
+          }
+        }
+      },
+      "salesDocumentCustomer": {
+        "resource": "salesDocument",
+        "preview": {
+          "query": "salesDocument?where=customerReference eq '{{$key}}'&orderBy=date desc&select=number,totalGrossAmountwithoutVAT,originalType,type,date,customer.name",
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>",
+          "template-ios": "<div class='item {type.$key}'><div class='contentTile'><div class='date'>{$date date}</div><div class='amount'>{$number totalGrossAmountwithoutVAT}</div><div class='footer'><div class='item-name'>{originalType}</div><div class='number'>{number}</div></div></div></div>"
+        },
+        "detail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomSalesDocumentCustomer"
+        }
+      },
+      "semanticZoomSalesDocumentCustomer": {
+        "resource": "salesDocument",
+        "datasource": "salesDocument?where=customerReference eq '{{$key}}'",
+        "zoomindetail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomInvoice header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item {{type.$key}}'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "createDate": {
+            "$title": {
+              "fr": "Trier par date de document",
+              "en": "Sort by document date"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "date",
+              "groupnametype": "date",
+              "sorttype": "date",
+              "dateformat": "YYYY-MM-DD",
+              "datesep": "-"
+            }
+          },
+          "originalType": {
+            "$title": {
+              "fr": "Trier par type de document",
+              "en": "Sort by document type"
+            },
+            "options": {
+              "sortby": "originalType",
+              "groupnametype": "originalType"
+            }
+          }
+        }
+      },
+      "semanticZoomDashboardhome": {
+        "resource": "$dashboards",
+        "datasource": "dashboardhome",
+        "zoominheader": {
+          "template": "<div class='semanticZoomDashboardhome header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "type": {
+            "$title": {
+              "fr": "Trier par type d'indicateurs",
+              "en": "Sort by KPI type"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "extras.type",
+              "localizedoption": "semanticZoom.kpi.sort",
+              "groupnametype": "localized",
+              "removeFromSort": "extras\\."
+            }
+          },
+          "category": {
+            "$title": {
+              "fr": "Trier par catégorie de données",
+              "en": "Sort by data category"
+            },
+            "options": {
+              "sortby": "extras.category",
+              "localizedoption": "semanticZoom.kpi.sort",
+              "groupnametype": "localized",
+              "removeFromSort": "extras\\."
+            }
+          },
+          "univers": {
+            "$title": {
+              "fr": "Trier par provenance des données",
+              "en": "Sort by data origin"
+            },
+            "options": {
+              "sortby": "extras.univers",
+              "localizedoption": "semanticZoom.kpi.sort",
+              "groupnametype": "localized",
+              "removeFromSort": "extras\\."
+            }
+          }
+        }
+      },
+      "semanticZoomDashboardcustomer": {
+        "resource": "$dashboards",
+        "datasource": "dashboardcustomer",
+        "zoominheader": {
+          "template": "<div class='semanticZoomDashboardcustomer header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "type": {
+            "$title": {
+              "fr": "Trier par type d'indicateurs",
+              "en": "Sort by KPI type"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "extras.type",
+              "localizedoption": "semanticZoom.kpi.sort",
+              "groupnametype": "localized",
+              "removeFromSort": "extras\\."
+            }
+          },
+          "category": {
+            "$title": {
+              "fr": "Trier par catégorie de données",
+              "en": "Sort by data category"
+            },
+            "options": {
+              "sortby": "extras.category",
+              "localizedoption": "semanticZoom.kpi.sort",
+              "groupnametype": "localized",
+              "removeFromSort": "extras\\."
+            }
+          },
+          "univers": {
+            "$title": {
+              "fr": "Trier par provenance des données",
+              "en": "Sort by data origin"
+            },
+            "options": {
+              "sortby": "extras.univers",
+              "localizedoption": "semanticZoom.kpi.sort",
+              "groupnametype": "localized",
+              "removeFromSort": "extras\\."
+            }
+          }
+        }
+      },
+      "expenseListProgress": {
+        "resource": "expense",
+        "moduleDisplayName": "{{$i18n 'modules.expenseListProgress.title'}}",
+        "preview": {
+          "template": "<div class='item {{_expenseStatus.title}} {{#if $syncStatus.notSynchronized}} notSync {{/if}}'><div class='contentTile'><div class='name'>{{expenseLabel}}</div><div class='date'>{{$date lastModified}}</div><div class='amount'>{{expenseAmountTVA}} €</div><div class='footer'><div class='item-name'>{{_expenseStatus.title}} </div>{{#if $syncStatus.notSynchronized }}<div class='notSync'>{{$i18n 'hermes.notSync' }}</div> {{/if}}</div></div></div>",
+          "query": "expense?where= _expenseStatus.title like 'saisie'&orderBy=created desc&select=*,expenseStatus.title",
+          "maxResult": 8
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomExpenseProgress"
+        }
+      },
+      "expenseListWaiting": {
+        "resource": "expense",
+        "moduleDisplayName": "{{$i18n 'modules.expenseListWaiting.title'}}",
+        "preview": {
+          "template": "<div class='item {{_expenseStatus.title}} {{#if $syncStatus.notSynchronized}} notSync {{/if}}'><div class='contentTile'><div class='name'>{{expenseLabel}}</div><div class='date'>{{$date lastModified}}</div><div class='amount'>{{expenseAmountTVA}} €</div><div class='footer'><div class='item-name'>{{_expenseStatus.title}} </div>{{#if $syncStatus.notSynchronized }}<div class='notSync'>{{$i18n 'hermes.notSync' }}</div> {{/if}}</div></div></div>",
+          "query": "expense?where= _expenseStatus.title like 'valid'&orderBy=created desc&select=*,expenseStatus.title",
+          "maxResult": 8
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomExpenseWaiting"
+        }
+      },
+      "expenseListTerminated": {
+        "resource": "expense",
+        "moduleDisplayName": "{{$i18n 'modules.expenseListTerminated.title'}}",
+        "preview": {
+          "template": "<div class='item {{_expenseStatus.title}} {{#if $syncStatus.notSynchronized}} notSync {{/if}}'><div class='contentTile'><div class='name'>{{expenseLabel}}</div><div class='date'>{{$date lastModified}}</div><div class='amount'>{{expenseAmountTVA}} €</div><div class='footer'><div class='item-name'>{{_expenseStatus.title}} </div>{{#if $syncStatus.notSynchronized }}<div class='notSync'>{{$i18n 'hermes.notSync' }}</div> {{/if}}</div></div></div>",
+          "query": "expense?where= _expenseStatus.title like 'completed'&orderBy=created desc&select=*,expenseStatus.title",
+          "maxResult": 8
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomExpenseTerminated"
+        }
+      },
+      "expenseList": {
+        "resource": "expense",
+        "moduleDisplayName": "{{$i18n 'modules.expenseList.title'}}",
+        "search": "expense.$key like '%{{searchString}}%'",
+        "preview": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{expenseLabel}}</div><div class='date'>{{$date lastModified}}</div><div class='footer'><div class='item-name'>{{_expenseStatus.title}}</div></div></div>",
+          "query": "expenseLine?where=expenseReference eq '{{expenseReference}}'&select=*,expenseCategory.title",
+          "maxResult": 100
+        },
+        "detail": {
+          "template": "<div class='item'><div class='contentTile'>{{#if $syncStatus.notSynchronized}} {{else}}<p class='infoTitle relief'>{{$i18n 'modules.expenseFiche.reference' }}<span class='infoContent relief' style='overflow:hidden'> {{uuid}}</span></p> {{/if}}<p class='infoTitle relief'>{{$i18n 'modules.expenseFiche.date'}}<span class='infoContent relief'>{{created}}</span></p><p class='infoTitle relief'>{{$i18n 'modules.expenseFiche.label'}}<span class='infoContent relief'>{{expenseLabel}}</span></p><p class='infoTitle relief'>{{$i18n 'modules.expenseFiche.comment'}}<span class='infoContent relief'>{{expenseComment}}</span></p><p class='infoTitle relief'>{{$i18n 'modules.expenseFiche.status'}}<span class='infoContent relief'>{{_expenseStatus.title}}</span></p><p class='infoTitle relief'>{{$i18n 'modules.expenseFiche.analyticalProject'}}<span class='infoContent relief'></span></p><p class='infoTitle relief'>{{$i18n 'modules.expenseFiche.client'}}<span class='infoContent relief'></span></p><p class='infoTitle relief'>{{$i18n 'modules.expenseFiche.realTotal'}}<span class='infoContent relief'>{{expenseAmountTVA}} €</span></p><p class='infoTitle relief'>{{$i18n 'modules.expenseFiche.reimbursedTotal'}}<span class='infoContent relief'>{{ expenseAmountWithoutTVA }} €</span></p></div></div>",
+          "titleTemplate": "{{$i18n 'modules.expenseFiche.title'}}<br/><span>{{#if $syncStatus.notSynchronized}} {{else}} {{uuid}} {{/if}}</span>",
+          "expenseLineQuery": "expenseLine?where=expenseReference.$key eq '{{$key}}'&select=*,expenseCategory.title",
+          "expenseLineTemplate": "<div id='{{$key}}' style='-ms-grid-column:1;-ms-grid-row:{{rownum}}' class='tableLine linkMark'>{{expenseLineDate}}</div> <div id='{{$key}}' style='-ms-grid-column:2;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{_expenseCategory.title}}</div> <div id='{{$key}}' style='-ms-grid-column:3;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{expenseLineLabel}}</div><div id='{{$key}}' style='-ms-grid-column:4;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number expenseLineAmountVAT}} €</div> <div id='{{$key}}' style='-ms-grid-column:5;-ms-grid-row:{{rownum}};text-align:right;' class='tableLineLast'> {{$number expenseLineAmountWithoutVAT}} €</div>"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomExpense"
+        },
+        "form": {
+          "fields": [
+            {
+              "name": "$key",
+              "label": {
+                "fr": "Identifiant",
+                "en": "Identity"
+              },
+              "type": "hidden",
+              "position": 0
+            },
+            {
+              "name": "created",
+              "label": {
+                "fr": "Date",
+                "en": "Date"
+              },
+              "type": "date",
+              "required": true,
+              "readonly": false,
+              "position": 2
+            },
+            {
+              "name": "expenseLabel",
+              "label": {
+                "fr": "Libellé",
+                "en": "Label"
+              },
+              "type": "string",
+              "required": true,
+              "readonly": false,
+              "position": 1
+            },
+            {
+              "name": "expenseComment",
+              "label": {
+                "fr": "Commentaire",
+                "en": "Comment"
+              },
+              "type": "string-long",
+              "required": false,
+              "readonly": false,
+              "position": 3
+            },
+            {
+              "name": "expenseStatusReference",
+              "label": {
+                "fr": "Statut",
+                "en": "Status"
+              },
+              "type": "select",
+              "values": {
+                "resource": "expenseStatus",
+                "key": "$key",
+                "title": "title"
+              },
+              "required": true,
+              "readonly": false,
+              "visible": false,
+              "position": 4
+            },
+            {
+              "name": "submit",
+              "label": {
+                "fr": "Soumettre",
+                "en": "Submit"
+              },
+              "type": "submit"
+            }
+          ]
+        }
+      },
+      "expenseLineList": {
+        "resource": "expenseLine",
+        "moduleDisplayName": "{{$i18n 'modules.expenseLineList.title'}}",
+        "search": "expenseCategory like '%{{searchString}}%'",
+        "preview": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>jnhubnuybn</div><div class='date'>{{$date expenseLineDate}}</div><div class='footer'><div class='item-name'></div></div></div>",
+          "query": "expenseLine?where=expenseReference eq '{{expenseReference}}'&select=*,expenseCategory.title",
+          "maxResult": 100
+        },
+        "detail": {
+          "template": "<div><p class='date'>{{$date expenseDate}}</p><p class='amount'>{{$number expenseAmountVAT}}</p><p class='name'>{{expenseStatus.$title}}</p></div>",
+          "titleTemplate": "{{$i18n 'modules.expenseLineList.title'}}",
+          "share": "<div><p class='date'>{{$date expenseLineDate}}</p><p class='amount'>{{$number expenseAmountVAT}}</p><p class='name'>{{expenseStatus.$title}}</p></div>"
+        },
+        "form": {
+          "fields": [
+            {
+              "name": "$key",
+              "label": {
+                "fr": "Identifiant",
+                "en": "Identity"
+              },
+              "type": "hidden",
+              "position": 0
+            },
+            {
+              "name": "_expenseReference",
+              "label": {
+                "fr": "Référence à la note de frais",
+                "en": "Expense reference"
+              },
+              "type": "hidden",
+              "position": 0
+            },
+            {
+              "name": "expenseLineDate",
+              "label": {
+                "fr": "Date",
+                "en": "Date"
+              },
+              "type": "date",
+              "required": true,
+              "readonly": false,
+              "position": 1
+            },
+            {
+              "name": "_expenseLineCategoryReference",
+              "label": {
+                "fr": "Catégorie",
+                "en": "Category"
+              },
+              "type": "select",
+              "values": {
+                "resource": "expenseCategory",
+                "key": "$key",
+                "title": "title"
+              },
+              "required": true,
+              "readonly": false,
+              "position": 2
+            },
+            {
+              "name": "expenseLineLabel",
+              "label": {
+                "fr": "Libellé",
+                "en": "Label"
+              },
+              "type": "string",
+              "required": false,
+              "readonly": false,
+              "position": 3
+            },
+            {
+              "name": "expenseLineQuantity",
+              "label": {
+                "fr": "Quantité",
+                "en": "Quantity"
+              },
+              "type": "numeric",
+              "required": false,
+              "readonly": false,
+              "position": 4
+            },
+            {
+              "name": "expenseLineAmountVAT",
+              "label": {
+                "fr": "Montant réel",
+                "en": "Real amount"
+              },
+              "type": "numeric",
+              "required": true,
+              "readonly": false,
+              "position": 5
+            },
+            {
+              "name": "expenseLineRefundedAmount",
+              "label": {
+                "fr": "Montant remboursé",
+                "en": "Refunded amount"
+              },
+              "type": "numeric",
+              "required": true,
+              "readonly": false,
+              "position": 6
+            },
+            {
+              "name": "expenseLineProject",
+              "label": {
+                "fr": "Projet",
+                "en": "Project"
+              },
+              "type": "string",
+              "required": false,
+              "readonly": false,
+              "position": 7
+            },
+            {
+              "name": "expenseLineCustomer",
+              "label": {
+                "fr": "Client",
+                "en": "Customer"
+              },
+              "type": "string",
+              "required": false,
+              "readonly": false,
+              "position": 8
+            },
+            {
+              "name": "expenseLineComment",
+              "label": {
+                "fr": "Commentaire",
+                "en": "Comment"
+              },
+              "type": "string-long",
+              "required": false,
+              "readonly": false,
+              "position": 9
+            },
+            {
+              "name": "attachment",
+              "label": {
+                "fr": "Image jointe",
+                "en": "Enclosed picture"
+              },
+              "type": "file",
+              "readonly": true,
+              "position": 10
+            },
+            {
+              "name": "submit",
+              "label": {
+                "fr": "Soumettre",
+                "en": "Submit"
+              },
+              "type": "submit"
+            },
+            {
+              "name": "cancel",
+              "label": {
+                "fr": "Annuler",
+                "en": "Cancel"
+              },
+              "type": "reset"
+            }
+          ]
+        }
+      },
+      "orderList": {
+        "resource": "salesDocument",
+        "moduleDisplayName": "{{$i18n 'module.order.title'}}",
+        "search": "number like '%{{searchString}}%'",
+        "preview": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>",
+          "template-ios": "<div class='item {type.$key}'><div class='contentTile'><div class='name'>{_customer.name}</div><div class='date'>{date:date('d-m-Y')}</div><div class='amount'>{totalGrossAmountwithoutVAT}</div><div class='footer'><div class='item-name'>{originalType}</div><div class='number'>{number}</div></div></div></div>",
+          "query": "salesDocument?where=type eq 'order'&orderBy=date desc&select=*,customer.name,customer.shortName",
+          "maxResult": 5
+        },
+        "detail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><p class='infoTitle relief'>{{$i18n 'module.customer'}}<span class='infoContent relief'>{{#if _customer.shortName}} {{_customer.shortName}} {{else}} - {{/if}}</span></p><p class='infoTitle relief'>{{$i18n 'module.totalwithoutvat'}}<span class='infoContent relief'>{{#if totalGrossAmountwithoutVAT}} {{$number totalGrossAmountwithoutVAT}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithoutvatnet'}}<span class='infoContent'>{{#if totalAmountAfterDiscount}} {{$number totalAmountAfterDiscount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totaltax'}}<span class='infoContent'>{{#if totalTaxAmount}} {{$number totalTaxAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.totalwithvat'}}<span class='infoContent'>{{#if totalGrossAmount}} {{$number totalGrossAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.discount'}}<span class='infoContent'>{{#if settlementDiscountAmountDocument}} {{$number settlementDiscountAmountDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.termamount'}}<span class='infoContent'>{{#if amountTermDocument}} {{amountTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.shippingcost'}}<span class='infoContent'>{{#if expenseChargedAmount}} {{$number expenseChargedAmount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.dueterm'}}<span class='infoContent'>{{#if dueDateTermDocument}} {{$date dueDateTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.pricinglist'}}<span class='infoContent'>{{#if customerGroupReference1}} {{customerGroupReference1}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingauthority'}}<span class='infoContent'>{{#if payingAuthorityFinancialAccount}} {{payingAuthorityFinancialAccount}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.modelregulation'}}<span class='infoContent'>{{#if originalDeliveryTypeTermDocument}} {{originalDeliveryTypeTermDocument}} {{else}} - {{/if}}</span></p><p class='infoTitle'>{{$i18n 'module.payingmethod'}}<span class='infoContent'>{{#if PaymentMethod}} {{PaymentMethod}} {{else}} - {{/if}}</span></p></div></div>",
+          "titleTemplate": "{{number}}<br/><span>{{originalType}}</span>",
+          "documentLineQuery": "salesDocumentLine?where=salesDocumentReference eq '{{$key}}'&select=*,commodity.commodityDescription",
+          "documentLineTemplate": "<div style='-ms-grid-column:1;-ms-grid-row:{{rownum}}' class='tableLine'>{{_commodity.commodityDescription}}</div> <div style='-ms-grid-column:2;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{amount.lineQuantity}}</div> <div style='-ms-grid-column:3;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.unitPrice 'price'}} €</div><div style='-ms-grid-column:4;-ms-grid-row:{{rownum}};text-align:right;' class='tableLine'>{{$number amount.discountPercent 'percent'}} %</div> <div style='-ms-grid-column:5;-ms-grid-row:{{rownum}};text-align:right;' class='tableLineLast'> {{$number amount.lineAmountWithoutVATAfterDiscount 'price'}} €</div>",
+          "documentHeaderDetailsTemplate": "<div class='orderRelief left'>{{originalType}} {{number}}</div><div class='bold right'>{{$i18n 'module.from'}} {{$date date}}</div></div><div class='clear'></div><div class='left linkTo customerDocDetail'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{_customer.name}}</p><p class='textMediumcolorSecondaryspan6'>{{_customer.shortName}}</p></div></div></div><div id='amounts' class='right'><div class='left decalright'>Total H.T</div><div class='right'>{{$number totalAmountAfterDiscount}}</div>",
+          "share": "<h4>{{$i18n 'module.order.documentname'}} {{number}} {{$i18n 'module.from'}} {{$date date}}</h4><table width='100%' border='0' cellspacing='0' cellpadding='0'><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customer'}}</font></td><td style='padding:15px'>{{_customer.name}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.customerReference'}}</font></td><td style='padding:15px'>{{_customer.shortName}}</td></tr><tr><td bgcolor='#30b150' style='padding:15px'><font color='#FFFFFF'>{{$i18n 'module.share.amountwithoutvat'}}</font></td><td style='padding:15px'>{{totalAmountAfterDiscount}}</td></tr></table>"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomOrder"
+        }
+      },
+      "semanticZoomOrder": {
+        "resource": "salesDocument",
+        "datasource": "salesDocument?where=type eq 'order'&select=number,totalGrossAmountwithoutVAT,originalType,type,date,customer.name",
+        "zoomindetail": {
+          "template": "<div class='item {{type.$key}}'><div class='contentTile'><div class='name'>{{_customer.name}}</div><div class='date'>{{$date date}}</div><div class='amount'>{{$number totalGrossAmountwithoutVAT}}</div><div class='footer'><div class='item-name'>{{originalType}}</div><div class='number'>{{number}}</div></div></div></div>"
+        },
+        "zoominheader": {
+          "template": "<div class='semanticZoomInvoice header'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p></div>"
+        },
+        "zoomoutdetail": {
+          "template": "<div class='zoomout item {{type.$key}}'><div class='contentTile'><p class='textBigcolorPrimaryspan6'>{{groupName}}</p><p class='textMediumcolorSecondaryspan6'>{{groupItemCount}}</p></div></div>"
+        },
+        "sort": {
+          "customerName": {
+            "$title": {
+              "fr": "Trier par nom du client",
+              "en": "Sort by customer's name"
+            },
+            "options": {
+              "sortby": "_customer.name",
+              "groupnametype": "_customer.name"
+            }
+          },
+          "createDate": {
+            "$title": {
+              "fr": "Trier par date de document",
+              "en": "Sort by document date"
+            },
+            "isdefault": "true",
+            "options": {
+              "sortby": "date",
+              "groupnametype": "date",
+              "sorttype": "date",
+              "dateformat": "YYYY-MM-DD",
+              "datesep": "-"
+            }
+          },
+          "originalType": {
+            "$title": {
+              "fr": "Trier par type de document",
+              "en": "Sort by document type"
+            },
+            "options": {
+              "sortby": "originalType",
+              "groupnametype": "originalType"
+            }
+          }
+        }
+      }
+    },
+    "dashboardsShortcuts": "",
+    "$dashboards": [
+      {
+        "$key": "dashboardhome",
+        "$title": {
+          "fr": "Mon activité",
+          "en": "My activity"
+        },
+        "$source": {
+          "$key": "OCTDEFAULTHOMELIST"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomDashboardhome"
+        }
+      },
+      {
+        "$key": "dashboardcustomer",
+        "$title": {
+          "fr": "Mon dashboard client",
+          "en": "My customer dashboard"
+        },
+        "$source": {
+          "$key": "OCTDEFAULTCUSTOMERLIST"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomDashboardcustomer"
+        }
+      },
+      {
+        "$key": "dashboardexpense",
+        "$title": {
+          "fr": "Mon dashboard NDF",
+          "en": "My NDF dashboard"
+        },
+        "$source": {
+          "$key": "DEFAULTNDFLIST"
+        },
+        "navigation": {
+          "semanticzoom": "semanticZoomDashboardhome"
+        }
+      },
+      {
+        "$key": "sampledashboard",
+        "$title": {
+          "fr": "Ma liste",
+          "en": "My List"
+        },
+        "$source": {
+          "$key": "SAMPLELIST"
+        }
+      },
+      {
+        "$key": "homedashboard",
+        "$title": {
+          "fr": "Liste SCME",
+          "en": "Liste SCME"
+        },
+        "$source": {
+          "$key": "OCTDEFAULTHOMELIST"
+        }
+      },
+      {
+        "$key": "customerdashboard",
+        "$title": {
+          "fr": "Mon dashboard client",
+          "en": "My customer dashboard"
+        },
+        "$source": {
+          "$key": "OCTDEFAULTCUSTOMERLIST"
+        }
+      }
+    ]
+  },
+  "$roles": {
+    "salesManager": {
+      "adminDefault": true,
+      "$title": {
+        "fr": "Directeur commercial",
+        "en": "Sales Manager"
+      },
+      "$options": {}
+    },
+    "salesRep": {
+      "$title": {
+        "fr": "Représentant",
+        "en": "Sales Representant"
+      },
+      "$options": {},
+      "$resources": {
+        "customer": {
+          "$trigger": "salesrepseeitscustomer"
+        },
+        "salesDocument": {
+          "$trigger": "salesrepseeitscustomerdocuments"
+        }
+      }
+    }
+  },
+  "$provisioning": {
+    "$requirements": {
+      "CONTRACT": [
+        "accounting_1.2.4",
+        "common_1.2.4",
+        "sales_1.2.4"
+      ],
+	  "KPI" : ["OCTDEFAULTCUSTOMERLIST","OCTDEFAULTHOMELIST"]
+    }
+  }
+}

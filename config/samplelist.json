@@ -1,0 +1,81 @@
+{
+    "$key": "SAMPLELIST",
+    "title": "Indicateurs test",
+    "description": "Test KPIs for Hermes",
+    "kpis": [
+        {
+            "$key": "SAMPLEKPI_2",
+            "positionInFav": 1,
+            "REF_SPEC_METIER": "11",
+            "referenceId": "SAMPLEKPI_2.0",
+            "title": {
+                "fr": "CA HT facturé",
+                "en": "Invoiced turnover"
+            },
+            "description": {
+                "fr": "Visualiser mes documents.",
+                "en": "See my documents"
+            },
+            "extras": {
+                "type": "evolution",
+                "category": "total_turnover",
+                "univers": "gescom"
+            },
+            "preview": {
+                "dataviz": {
+                    "children": [
+                        {
+                            "type": "preview_figure",
+                            "noTextColor": true,
+                            "showRawFigure": true,
+                            "heightUnit": "overLay",
+                            "formatType": "kilo"
+                        }
+                    ]
+                },
+                "def": {
+                    "elements": [
+                        "salesSalesPeriodsSalesYear",
+                        "salesSalesPeriodsSalesMonthDescription",
+                        "salesSalesSynthesisTurnoverBeforeTaxes"
+                    ],
+                    "filterExpression": "",
+
+                    "periods": []
+                },
+				"prompts": []
+            },
+            "detail": {
+                "dataviz": {
+                    "children": [
+                        {
+                            "type": "pivot",
+                            "title": "Détail"
+                        },
+                        {
+                            "type": "radcolumnchart",
+                            "title": "Column Chart"
+                        },
+                        {
+                            "type": "radpiechart",
+                            "title": "Pie Chart"
+                        },
+                        {
+                            "type": "radlinechart",
+                            "title": "Pie Chart"
+                        }
+                    ]
+                },
+                "def": {
+                    "elements": [
+                        "salesSalesPeriodsSalesMonthDescription",
+                        "salesSalesSynthesisTurnoverBeforeTaxes"
+                    ],
+                    "filterExpression": "",
+                    "periods": []
+                },
+                "prompts": []
+            }
+        }
+    ]
+}
